@@ -8,7 +8,7 @@ ask for group name..
 from kivy.app import App
 from kivy.uix.label import Label # writing
 from kivy.uix.gridlayout import GridLayout # table
-from kivy.uix.testinput import TextInput # input text
+from kivy.uix.textinput import TextInput # input text
 from kivy.uix.button import Button # button component
 
 class MyGridLayout(GridLayout):
