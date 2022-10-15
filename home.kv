@@ -12,7 +12,7 @@
         
         #top header to go back to homepage
         Label:
-            size_hint: (1, .05)
+            size_hint: (1, .06)
             pos_hint: {"right": 1, "top":1}
             canvas.before:
                 Color:
@@ -27,16 +27,16 @@
             background_color: utils.get_color_from_hex('#BF98D1')
             on_press: self.background_color = (1.2, 1.2, 1, 0)
             on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
-            FloatLayout:
-                Image:
+            canvas:
+                Rectangle:
                     source: "assets/images/logoontop.png"
-                    size_hint: (1.6,1.6)
-                    pos_hint: {"center_x":1.6, "top":6.35}
+                    size: self.size
+                    pos: self.pos
         #search bar
         TextInput:
             size_hint: (.94, None)
             height: 30
-            pos_hint: {"x": 0.03, "top": 0.93}
+            pos_hint: {"x": 0.03, "top": 0.92}
             hint_text: "Search"
             multinline:False
             cursor_color: utils.get_color_from_hex('#7F31A3')
