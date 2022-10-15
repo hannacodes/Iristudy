@@ -23,6 +23,19 @@ class Account(Screen):
     def __init__(self, **kwargs):  
         super().__init__(**kwargs)
 
+class mygroups(Screen):
+    kv = Builder.load_file("mygrp.kv")
+    def __init__(self, **kwargs):  
+        super().__init__(**kwargs)
+
+class Profile(Screen):
+    kv = Builder.load_file("profile.kv")
+    def __init__(self, **kwargs):  
+        super().__init__(**kwargs)
+        
+#still need to add create group, search group
+        
+
 
 sm = WindowManager() 
 
@@ -37,7 +50,7 @@ sm.current = "login"
 class LoginAppMain(App):
     def build(self): 
         Window.size = (480/1.5, 853/1.5)
-        App.title = "test"
+        App.title = "IRISTUDY"
         return sm
         
 if __name__ == '__main__':
