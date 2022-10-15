@@ -23,10 +23,9 @@ class CreateFormLayout(Widget):
     description = ObjectProperty(None)
 
     def submit(self):
-        self.add_widget(Label(text=f'{self.name.text}, {self.groupName.text}, {self.subject.text}, {self.description.text}'))
+        self.add_widget(Label(text=f'{self.name.text}, {self.groupName.text}, {self.description.text}'))
         self.name.text = ""
         self.groupName.text = ""
-        self.subject.text = ""
         self.description.text = ""
 
     pass

@@ -3,7 +3,7 @@
 
     name: name
     groupName: groupName
-    subject: subject
+    # subject: subject
     description: description
 
     GridLayout:
@@ -28,9 +28,9 @@
 
             Label:
                 text: "Subject: "
-            TextInput:
-                id: subject
-                multiline: False
+                # give id = subject
+            Label:
+                text: "Subject dropdown placeholder"
             # DropDown:
             #     id: subject
             #     Button:
@@ -62,7 +62,7 @@
 
             Button:
                 text: "Submit"
-                on_press: root.add_widget(subject())
+                on_press: root.submit()
 
                 # assign a group id randomly if the submission is valid
 
