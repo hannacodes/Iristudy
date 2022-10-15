@@ -1,7 +1,6 @@
 #:kivy 2.1.0
 
 <CreateFormScreen>
-    name: name
     groupName: groupName
     # subject: subject
     description: description
@@ -23,25 +22,22 @@
             size_hint:(.3, .05)
             pos_hint: {"center_x":.5, "top":1}
         
-        # ScrollView:
-        #     do_scroll_x: False
-        #     do_scroll_y: True
         Label:
             size_hint: (1, 0.18)
             pos_hint: {"x":0, "top":1}
             text: "Create a group"
 
         # buttons 
-        Label:
-            size_hint: (0.1, 0.15)
-            pos_hint: {"x": 0.15, "top": 0.95}
-            text: "Creator Name: "
-        TextInput:
-            size_hint: (0.9, 0.05)
-            pos_hint: {"x": 0.03, "top": 0.85}
-            hint_text: "Creator name"
-            id: name
-            multiline: False
+        # Label:
+        #     size_hint: (0.1, 0.15)
+        #     pos_hint: {"x": 0.15, "top": 0.95}
+        #     text: "Creator Name: "
+        # TextInput:
+        #     size_hint: (0.9, 0.05)
+        #     pos_hint: {"x": 0.03, "top": 0.85}
+        #     hint_text: "Creator name"
+        #     id: name
+        #     multiline: False
 
         Label:
             size_hint: (0.1, 0.15)
