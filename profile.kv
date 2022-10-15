@@ -1,11 +1,64 @@
 #:kivy 2.1.0
 <Profile> 
     FloatLayout: 
-        canvas:
-            Color:
-                rgb: 1, 1, 1
-            Ellipse:
-                pos-hint: 
-                size-hint: 
-                angle_start: 0
-                angle_end: 360
+        size: root.width, root.height
+        Button:
+            background_color: 0, 0, 0, 0
+            size_hint: 0.2, 0.11
+            pos_hint: {'x':0.15, 'top':0.92}
+            canvas:
+                Color:
+                    rgb: (1, 1, 1, 1) 
+                RoundedRectangle:
+                    pos: (self.pos)
+                    radius: [400, ]
+        Label: 
+            text: "NAME"
+            font_size: "25sp"
+            size_hint: 0.01, 0.2
+            pos_hint: {'x':0.65, 'top':0.98}
+
+        Label: 
+            text: "pronouns"
+            font_size:"15sp"
+            size_hint:  0.01, 0.2
+            pos_hint: {'x':0.65, 'top':0.95}
+        
+        Label:
+            text: "Bio"
+            font_size:"20sp"
+            size_hint: 0.2, 0.1
+            pos_hint: {'x':0.05, 'top':0.78}
+        
+        TextInput: 
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non tortor auctor, auctor tellus euismod, dictum arcu. Quisque tortor ex, interdum sodales vehicula id, mattis vel felis. Pellentesque eget quam dui. Morbi est purus, faucibus ac accumsan vitae, suscipit sit amet nisl. Suspendisse et pulvinar diam, et pellentesque nibh."
+            disabled:True
+            multiline:True
+            font_size: "15sp"
+            size_hint: 0.6, 0.2
+            pos_hint: {'x':0.3, 'top':0.75}
+
+        Label:
+            text: "User Info"
+            font_size:"20sp"
+            size_hint: 0.2, 0.1
+            pos_hint: {'x':0.1, 'top':0.48}
+
+        Label:
+            text: "Email: xxxxx@gmail.com"
+            font_size:"15sp"
+            size_hint: 0.2, 0.1
+            pos_hint: {'x':0.19, 'top':0.44}
+        
+        Label:
+            text: "Email: xxxxx@gmail.com"
+            font_size:"15sp"
+            size_hint: 0.2, 0.1
+            pos_hint: {'x':0.19, 'top':0.44}
+
+
+        Label:
+            text: "Contact"
+            font_size:"20sp"
+            size_hint: 0.2, 0.1
+            pos_hint: {'x':0.09, 'top':0.38}
