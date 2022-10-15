@@ -32,7 +32,9 @@ class Scroll(ScrollView):
         for i in range(15):
             #SkillStats = BoxLayout(size_hint_y = None, orientation = "vertical")
             SkillStat = BoxLayout(spacing = 2, height = 150, orientation = "vertical", size_hint_y = None)
-            SkillStat.add_widget(Label(text = "Name\nSubject\nAdmin", color = (0,0,0,1), size_hint = (None, None), size = (80, 50), pos_hint = {"center_x":.5, "top":0}))
+            SkillStat.add_widget(Label(text = "Name", color = (0,0,0,1), size_hint = (None, None), size = (80, 20), pos_hint = {"center_x":.5, "top":0}))
+            SkillStat.add_widget(Label(text = "Subject", color = (0,0,0,1), size_hint = (None, None), size = (80, 20), pos_hint = {"center_x":.5, "top":0}))
+            SkillStat.add_widget(Label(text = "Admin", color = (0,0,0,1), size_hint = (None, None), size = (80, 20), pos_hint = {"center_x":.5, "top":0}))
             flaylout = FloatLayout(size_hint = (1, 1))
             flaylout.add_widget(Button(text = "more info", size_hint = (0.3, 0.4), pos_hint = {"center_x": .5, "top": 0.9}))
             SkillStat.add_widget(flaylout)
