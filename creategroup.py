@@ -13,10 +13,13 @@ from kivy.uix.button import Button # button component
 from kivy.uix.widget import Widget
 from kivy.uix.dropdown import DropDown
 from kivy.properties import ObjectProperty
+from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.scrollview import ScrollView
 from kivy.core.window import Window
 Window.size = (480/1.5, 853/1.5)
 
-class CreateFormLayout(Widget):
+
+class CreateFormScreen(Widget):
     name = ObjectProperty(None)
     groupName = ObjectProperty(None)
     subject = ObjectProperty(None)
@@ -28,11 +31,10 @@ class CreateFormLayout(Widget):
         self.groupName.text = ""
         self.description.text = ""
 
-    pass
 
 class CreateApp(App):
     def build(self):
-        return CreateFormLayout()
+        return CreateFormScreen()
 
 if __name__ == '__main__':
     CreateApp().run()
