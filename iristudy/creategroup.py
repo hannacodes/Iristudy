@@ -48,6 +48,7 @@ class Pop(FloatLayout):
         for __ in range(56): 
             glay.add_widget(Button(text="t", background_color= (0,0,0,0.5)))
         self.add_widget(glay)
+
 class NewBtn(Button):
     def __init__(self, **kwargs):
         super(Button, self).__init__(**kwargs)
@@ -57,14 +58,20 @@ class NewBtn(Button):
 
 def show_popup():
     popupWindow = Popup(title="Calendar", size_hint=(None, None), size=(300, 380))
-    glay = GridLayout(cols=7, size_hint = (1, 1))
+    glay = GridLayout(cols=8, size_hint = (1, 1))
     arr = ["S", "M", "Tu", "W", "Th", "F", "S"]
+    glay.add_widget(Label())
     for i in range(7): 
         glay.add_widget(Label(text=arr[i]))
-    for __ in range(49): 
-        btn = NewBtn(text="t", background_color= (0,0,0,0.5))
-        btn.bind(on_press = btn.changebg)
-        glay.add_widget(btn)
+
+    arr2 = ["9:00am", "10:00am", "11:00am", "12:00pm", "1:00pm", "2:00pm", "3:00pm"]
+    for x in range(7): 
+        lbl = Label(text=arr2[x])
+        glay.add_widget(lbl)
+        for x in range(7):
+            btn = NewBtn(text="", background_color= (0,0,0,0.5))
+            btn.bind(on_press = btn.changebg)
+            glay.add_widget(btn)
     popupWindow.add_widget(glay)
 
     popupWindow.open()
