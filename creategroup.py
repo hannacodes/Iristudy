@@ -31,8 +31,25 @@ class MyGridLayout(GridLayout):
         # add Subject widget
         self.add_widget(Label(text="Subject: "))
         # add input box
-        self.name = TextInput(multiline=False)
-        self.add_widget(self.name)
+        self.subject = TextInput(multiline=False)
+        self.add_widget(self.subject)
+
+
+        self.submit = Button(text="Submit", font_size=32)
+        self.submit.bind(on_press=self.press) # could be any function
+        self.add_widget(self.submit)
+
+    def press(self, instance):
+        name = self.name.text
+        subject = self.subject.text
+        # for more widgets
+
+        # error check if they didn't submit something for all widgets
+        self.add_widget(Label(text=f'Name: {name}, your subject is {subject}'))
+
+        # clear input boxes after submitting
+        name = self.name.text = ""
+        subject = self.subject.text = ""
 
 class MyApp(App):
     def build(self):
