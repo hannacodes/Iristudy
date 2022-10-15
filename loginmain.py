@@ -8,8 +8,13 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 class WindowManager(ScreenManager):  
     pass
 
+class Homepage(Screen):
+    kv = Builder.load_file("home.kv")
+    def __init__(self, **kwargs):  
+        super().__init__(**kwargs)
+
 class Login(Screen):
-    Builder.load_file("login.kv")
+    kv = Builder.load_file("login.kv")
     def __init__(self, **kwargs):  
         super().__init__(**kwargs)
 
@@ -18,9 +23,10 @@ class Account(Screen):
     def __init__(self, **kwargs):  
         super().__init__(**kwargs)
 
+
 sm = WindowManager() 
 
-screens = [Login(name="login"), Account(name="AccountApp")]  
+screens = [Login(name="login"), Account(name="AccountApp"), Homepage(name="home")]  
 
 for screen in screens:  
     print("widget added")
@@ -30,7 +36,7 @@ sm.current = "login"
 
 class LoginAppMain(App):
     def build(self): 
-        Window.size = (480, 853)
+        Window.size = (480/1.5, 853/1.5)
         App.title = "test"
         return sm
         
