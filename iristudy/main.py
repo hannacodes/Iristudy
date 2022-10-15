@@ -53,17 +53,18 @@ class GroupLayout(BoxLayout):
 class Scroll(ScrollView):
     def __init__(self,  **kwargs):
         super(Scroll, self).__init__(**kwargs)
-        layout = GridLayout(cols=1, spacing=1, pos_hint ={'x':0, 'y': 0}, size_hint_y = None, height = "0.7") 
+        layout = GridLayout(cols=1, spacing=-1, pos_hint ={'x':0, 'y': 0}, size_hint_y = None, height = "0.8") 
 
         layout.bind(minimum_height=layout.setter('height'))
         # Make sure the height is such that there is something to scroll.
-        for i in range(2):
-            rlayout = RelativeLayout(height=150, size_hint_y=None, size_hint_x=self.width)
+        for i in range(6):
+            rlayout = RelativeLayout(height=140, size_hint_y=None, size_hint_x=self.width)
             with rlayout.canvas.before: 
                 Color(0.9, 0.8, 0.94, 1)
-                Rectangle(pos=(self.pos[0] + 40, self.pos[1]+32), size=(self.width+140, 120))
+                print( 0.125*Window.size[0], 0.56*Window.size[1], self.width+0.43*(Window.size[0]), 0.21 * (Window.size[1]))
+                Rectangle(pos=(self.pos[0] + 0.125*Window.size[0], self.pos[1]+0.056*Window.size[1]), size=(self.width+0.4375*(Window.size[0]), 0.21 * (Window.size[1])))
 
-            group = GroupLayout("name", "subject", "admin", spacing = 2, height = 150, orientation = "vertical", size_hint_y = None)
+            group = GroupLayout("name", "subject", "admin", spacing = 1, height = 140, orientation = "vertical", size_hint_y = None)
             rlayout.add_widget(group)
             layout.add_widget(rlayout)
 
