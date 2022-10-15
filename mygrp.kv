@@ -1,13 +1,88 @@
 <scrollingtest>:
-    orientation: "vertical"
-    ScrollView:
-        Label:
-            size_hint_y: None 
-            height: self.texture_size[1]
-            text_size: self.width, None
-            text: "hi" * 1000
-            font_size: "30sp"
-
+    
+    #ScrollView:
+    #    Label:
+     #       size_hint_y: None 
+      #      height: self.texture_size[1]
+       #     text_size: self.width, None
+        #    text: "hi" * 100
+         #   font_size: "30sp"
+    
+    ScrollView: 
+        size_hint: (1, 1)
+        BoxLayout:
+            orientation: "vertical"
+            size_hint_y: None
+            height: self.minimum_height
+            Label:
+                text: "Name\nSubject\nAdmin\n" 
+                size_hint_y: None
+                size: self.texture_size
+            Button: 
+                text: "more info"
+                size_hint: (.4, .3)
+                pos_hint: {"center_x": .5}
+                size: self.texture_size
+            Label:
+                text: "\n\nName\nSubject\nAdmin\n" 
+                size_hint_y: None
+                size: self.texture_size
+            Button: 
+                text: "more info"
+                size_hint: (.4, .3)
+                pos_hint: {"center_x": .5}
+                size: self.texture_size
+            Label:
+                text: "\n\nName\nSubject\nAdmin\n" 
+                size_hint_y: None
+                size: self.texture_size
+            Button: 
+                text: "more info"
+                size_hint: (.4, .3)
+                pos_hint: {"center_x": .5}
+                size: self.texture_size
+            Label:
+                text: "\n\nName\nSubject\nAdmin\n" 
+                size_hint_y: None
+                size: self.texture_size
+            Button: 
+                text: "more info"
+                size_hint: (.4, .3)
+                pos_hint: {"center_x": .5}
+                size: self.texture_size
+            Label:
+                text: "\n\nName\nSubject\nAdmin\n" 
+                size_hint_y: None
+                size: self.texture_size
+            Button: 
+                text: "more info"
+                size_hint: (.4, .3)
+                pos_hint: {"center_x": .5}
+                size: self.texture_size
+            Label:
+                text: "\n\nName\nSubject\nAdmin\n" 
+                size_hint_y: None
+                size: self.texture_size
+            Button: 
+                text: "more info"
+                size_hint: (.4, .3)
+                pos_hint: {"center_x": .5}
+                size: self.texture_size
+            Label:
+                text: "\n\nName\nSubject\nAdmin\n" 
+                size_hint_y: None
+                size: self.texture_size
+            Button: 
+                text: "more info"
+                size_hint: (.4, .3)
+                pos_hint: {"center_x": .5}
+                size: self.texture_size
+            #bottom label
+            Label: 
+                text:"\n\n\n\n\n\n\n\n\n" 
+                size_hint_y: None
+                size: self.texture_size
+            
 <mygroups>
     FloatLayout:
         size: root.width, root.height
@@ -36,6 +111,7 @@
         
         scrollingtest:
             pos_hint: {"top": .85}
+
         #homepage buttons on bottom
         BoxLayout:
             orientation: "horizontal"
