@@ -9,25 +9,16 @@ from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 from kivy.uix.widget import Widget
 
-class LoginScreen(Widget):
+from kivy.config import Config
+from kivy.core.window import Window
+Window.size = (480, 853)
+
+class Login(Widget):
     pass
 
-class LoginScreenApp(App):
+class LoginApp(App):
     def build(self): 
-        return LoginScreen()
-    '''def __init__(self, **kwargs):
-        super(LoginScreen, self).__init__(**kwargs)
-        self.cols = 1
-        a = FloatLayout()
-        
-        a.glayout = GridLayout(cols = 1, size_hint=(.3, .2),
-                pos_hint={'x':.35, 'y':.4})
-        a.glayout.username = TextInput(text = 'Username', multiline = False)
-        a.glayout.add_widget(a.glayout.username)
-        a.glayout.password = TextInput(text = 'Password', password=True, multiline=False)
-        a.glayout.add_widget(a.glayout.password)
-        a.add_widget(a.glayout)
-        self.add_widget(a)'''
+        return Login()
         
 if __name__ == '__main__':
-    LoginScreenApp().run()
+    LoginApp().run()

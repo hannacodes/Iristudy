@@ -1,32 +1,32 @@
-#:kivy 1.0.9
-<LoginScreen>
+#:kivy 2.1.0
+<Login>
     FloatLayout:
-
+        size: root.width, root.height
         Label: 
             text: "Username" 
-            size_hint: .3, .2
-            pos_hint: {'x':3.4, 'top': 4.5}
+            size_hint: 0.2, 0.05
+            pos_hint: {'x':0.23, 'top': 0.74}
         
         TextInput: 
             multiline: False
-            size_hint: 2, .35
-            pos_hint: {'x':3.2, 'top': 4.25}
+            size_hint: 0.5, 0.04
+            pos_hint: {'x':0.25, 'top': 0.7}
         
         Label: 
             text: "Password" 
-            size_hint: .3, .2
-            pos_hint: {'x':3.4, 'top': 3.75}
+            size_hint: 0.2, 0.05
+            pos_hint: {'x':0.23, 'top': 0.65}
 
         TextInput: 
             multiline: False
             password: True
-            size_hint: 2, .35
-            pos_hint: {'x':3.2, 'top': 3.5}
+            size_hint: 0.5, 0.04
+            pos_hint: {'x':0.25, 'top': 0.61}
 
         Button: 
             text: "Login"
-            size_hint: 1.5, .3
-            pos_hint: {'x': 3.4, 'top': 2.9}
+            size_hint: 0.2, 0.03
+            pos_hint: {'x':0.4, 'top': 0.55}
 
         
             
