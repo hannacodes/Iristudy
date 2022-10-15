@@ -20,6 +20,7 @@ Window.size = (480/1.5, 853/1.5)
 
 
 class CreateFormScreen(Widget):
+    # get the username from profile data and then set it to name data
     groupName = ObjectProperty(None)
     subject = ObjectProperty(None)
     description = ObjectProperty(None)

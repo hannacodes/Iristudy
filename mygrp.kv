@@ -11,18 +11,16 @@
     ScrollView:
         do_scroll_x: False
         do_scroll_y: True
-        pos_hint: {'x':0, 'y': 0.265}
+        pos_hint: {'x':0, 'y': 0.256}
         size_hint_y: 0.76
         BoxLayout:
-            orientation: "vertical"
             size:(root.width, root.height)
             height: self.minimum_height
             row_default_height: 180
             row_force_default: True
             size_hint_y: None
             height: 1
-            size_hint_y: None
-            height: self.minimum_height
+            orientation: "vertical"
             Label:
                 text: "Name\nSubject\nAdmin\n" 
                 size_hint_y: None
@@ -114,7 +112,7 @@
         #each group tab 
         
         scrollingtest:
-            pos_hint: {"top": .85}
+            pos_hint: {"x":0, "y": 0}
 
         #homepage buttons on bottom
         BoxLayout:
