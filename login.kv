@@ -1,26 +1,38 @@
 #:kivy 2.1.0
+#:import utils kivy.utils
 <Login>
     FloatLayout:
         size: root.width, root.height
+        canvas.before:
+            Color:
+                rgb: utils.get_color_from_hex('#F1E6F8')
+            Rectangle:
+                pos: self.pos
+                size: self.size
         
         Image:
-            source: 'https://media.discordapp.net/attachments/1011285411286487180/1030678476530909234/Iristudt-removebg-preview.png'
+            source: 'assets/images/logocropped.png'
             size_hint: 0.2, 0.1
-            pos_hint: {'x':0.4, 'top': 0.9}
+            pos_hint: {'x':0.4, 'top': 0.85}
 
         Label: 
             text: "Username" 
+            color: (0, 0, 0)
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             size_hint: 0.2, 0.05
             pos_hint: {'x':0.23, 'top': 0.74}
         
         TextInput: 
             multiline: False
             hint_text: "Username"
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             size_hint: 0.5, 0.04
             pos_hint: {'x':0.25, 'top': 0.7}
         
         Label: 
             text: "Password" 
+            color: (0, 0, 0)
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             size_hint: 0.2, 0.05
             pos_hint: {'x':0.23, 'top': 0.65}
 
@@ -28,16 +40,19 @@
             multiline: False
             password: True
             hint_text: "Password"
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             size_hint: 0.5, 0.04
             pos_hint: {'x':0.25, 'top': 0.61}
 
         Button: 
             text: "Login"
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             size_hint: 0.3, 0.03
             pos_hint: {'x':0.35, 'top': 0.55}
 
         Button: 
             text: "Create Account"
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             size_hint: 0.3, 0.03
             pos_hint: {'x':0.35, 'top': 0.50}
 
