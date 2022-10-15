@@ -12,47 +12,76 @@
         
         Image:
             source: 'assets/images/logocropped.png'
-            size_hint: 0.2, 0.1
-            pos_hint: {'x':0.4, 'top': 0.85}
+            size_hint: 0.3, 0.2
+            pos_hint: {'x':0.35, 'top': 0.85}
 
         Label: 
             text: "Username" 
             color: (0, 0, 0)
             font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             size_hint: 0.2, 0.05
-            pos_hint: {'x':0.23, 'top': 0.74}
+            pos_hint: {'x':0.23, 'top': 0.68}
         
         TextInput: 
             multiline: False
             hint_text: "Username"
+            color: (0.5, 0.5, 0.5)
+            background_normal: ''
+            background_color: (1,1,1,0.5)
             font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             size_hint: 0.5, 0.04
-            pos_hint: {'x':0.25, 'top': 0.7}
+            pos_hint: {'x':0.25, 'top': 0.64}
         
         Label: 
             text: "Password" 
             color: (0, 0, 0)
             font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             size_hint: 0.2, 0.05
-            pos_hint: {'x':0.23, 'top': 0.65}
+            pos_hint: {'x':0.23, 'top': 0.6}
 
         TextInput: 
             multiline: False
             password: True
+            color: (0.5, 0.5, 0.5)
+            background_normal: ''
+            background_color: (1,1,1,0.5)
+            foreground_color: (0,0,0)
             hint_text: "Password"
             font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             size_hint: 0.5, 0.04
-            pos_hint: {'x':0.25, 'top': 0.61}
+            pos_hint: {'x':0.25, 'top': 0.56}
+
+
 
         Button: 
-            text: "Login"
-            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
-            size_hint: 0.3, 0.03
-            pos_hint: {'x':0.35, 'top': 0.55}
+            text: "LOG IN"
+            color: (0,0,0)
+            background_normal: ''
+            background_color: (0,0,0,0)
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-bold'
+            size_hint: 0.2, 0.04
+            pos_hint: {'x':0.4, 'top': 0.50}
+            canvas.before:
+                Color:
+                    rgb: utils.get_color_from_hex('#BF98D1')
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [10]
 
         Button: 
-            text: "Create Account"
-            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
-            size_hint: 0.3, 0.03
-            pos_hint: {'x':0.35, 'top': 0.50}
+            text: "SIGN UP"
+            color: (0,0,0)
+            background_normal: ''
+            background_color: (0,0,0,0)
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-bold'
+            size_hint: 0.2, 0.04
+            pos_hint: {'x':0.4, 'top': 0.44}
+            canvas.before:
+                Color:
+                    rgb: utils.get_color_from_hex('#BF98D1')
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [10]
 
