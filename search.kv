@@ -25,8 +25,79 @@
             hint_text: "Search"
             multinline:False
 
+
+        Label:
+            pos_hint: {"x": 0, "y": 0.34}
+            text: "BRUH"
         # rectangle of groups to scroll through
-        
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
+
+            pos_hint: {'x':0, 'y': 0.1}
+            size_hint_y: 0.70
+            
+            BoxLayout:
+                size:(root.width, root.height)
+                height: self.minimum_height
+                row_default_height: 180
+    		    row_force_default: True
+                size_hint_y: None
+                height: 1
+                orientation: 'vertical'
+                
+                Button:
+                    text: 'Hello World'
+                    background_color: (0, 0, 1, 1)
+                Button:
+                    text: 'Hello World'
+                    background_color: (1, 0, 0, 1)
+
+                Button:
+                    text: 'Hello World'
+                    background_color: (1, 0, 0, 1)
+
+                Button:
+                    text: 'Hello World'
+                    background_color: (0, 0, 1, 1)
+                Button:
+                    text: 'Hello World'
+                    background_color: (1, 0, 0, 1)
+
+                Button:
+                    text: 'Hello World'
+                    background_color: (0, 0, 1, 1)
+
+                Button:
+                    text: 'Hello World'
+                    background_color: (1, 0, 0, 1)
+
+                Button:
+                    text: 'Hello World'
+                    background_color: (0, 0, 1, 1)
+
+                Button:
+                    text: 'Hello World'
+                    background_color: (1, 0, 0, 1)
+
+                Button:
+                    text: 'Hello World'
+                    background_color: (0, 0, 1, 1)
+                Button:
+                    text: 'Hello World'
+                    background_color: (1, 0, 0, 1)
+
+                Button:
+                    text: 'Hello World'
+                    background_color: (0, 0, 1, 1)
+                Button:
+                    text: 'Hello World'
+                    background_color: (1, 0, 0, 1)
+
+                Button:
+                    text: 'Hello World'
+                    background_color: (0, 0, 1, 1)
+            
 
         #homepage buttons on bottom
         BoxLayout:
