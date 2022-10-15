@@ -1,5 +1,6 @@
 """
-Search group screen
+Join group screen when people click onto a group while searching
+group or clicking on recommended groups.
 """
 
 import kivy
@@ -14,12 +15,12 @@ from kivy.properties import ObjectProperty
 from kivy.core.window import Window
 Window.size = (480/1.5, 853/1.5)
 
-class SearchGroupScreen(Widget):
+class JoinGroupScreen(Widget):
     pass
 
-class SearchApp(App):
+class JoinApp(App):
     def build(self):
-        return SearchGroupScreen()
+        return JoinGroupScreen()
 
 if __name__ == '__main__':
-    SearchApp().run()
+    JoinApp().run()
