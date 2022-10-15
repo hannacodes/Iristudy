@@ -1,0 +1,54 @@
+#:kivy 2.1.0
+<Account> 
+    FloatLayout: 
+
+        size: root.width, root.height
+
+        Image:
+            source: 'https://media.discordapp.net/attachments/1011285411286487180/1030678476530909234/Iristudt-removebg-preview.png'
+            size_hint: 0.2, 0.1
+            pos_hint: {'x':0.4, 'top': 0.9}
+
+        Label: 
+            text: "Email Address" 
+            size_hint: 0.25, 0.05
+            pos_hint: {'x':0.23, 'top': 0.74}
+
+        TextInput: 
+            multiline: False
+            hint_text: "Email Address"
+            size_hint: 0.5, 0.04
+            pos_hint: {'x':0.25, 'top': 0.7}
+
+        Label: 
+            text: "Create a Username" 
+            size_hint: 0.25, 0.05
+            pos_hint: {'x':0.26, 'top': 0.66}
+        
+        TextInput: 
+            multiline: False
+            hint_text: "Username"
+            size_hint: 0.5, 0.04
+            pos_hint: {'x':0.25, 'top': 0.62}
+        
+        Label: 
+            text: "Create a Password" 
+            size_hint: 0.25, 0.05
+            pos_hint: {'x':0.26, 'top': 0.58}
+
+        TextInput: 
+            multiline: False
+            password: True
+            hint_text: "Password"
+            size_hint: 0.5, 0.04
+            pos_hint: {'x':0.25, 'top': 0.54}
+
+        Button: 
+            text: "Create Account"
+            size_hint: 0.3, 0.03
+            pos_hint: {'x':0.35, 'top': 0.48}
+        
+        Button: 
+            text: "Already have an account?"
+            size_hint: 0.4, 0.03
+            pos_hint: {'x':0.30, 'top': 0.44}

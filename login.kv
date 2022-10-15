@@ -2,6 +2,12 @@
 <Login>
     FloatLayout:
         size: root.width, root.height
+        
+        Image:
+            source: 'https://media.discordapp.net/attachments/1011285411286487180/1030678476530909234/Iristudt-removebg-preview.png'
+            size_hint: 0.2, 0.1
+            pos_hint: {'x':0.4, 'top': 0.9}
+
         Label: 
             text: "Username" 
             size_hint: 0.2, 0.05
@@ -27,5 +33,11 @@
 
         Button: 
             text: "Login"
-            size_hint: 0.2, 0.03
-            pos_hint: {'x':0.4, 'top': 0.55}
+            size_hint: 0.3, 0.03
+            pos_hint: {'x':0.35, 'top': 0.55}
+
+        Button: 
+            text: "Create Account"
+            size_hint: 0.3, 0.03
+            pos_hint: {'x':0.35, 'top': 0.50}
+
