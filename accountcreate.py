@@ -8,6 +8,7 @@ class Account(Widget):
 
 class AccountApp(App):
     def build(self): 
+        App.title = "AccountApp"
         return Account()
 
 if __name__ == '__main__':

@@ -1,5 +1,8 @@
 #:kivy 2.1.0
 #:import utils kivy.utils
+#:import Window kivy.core.window
+#:import ScreenManager kivy.uix.screenmanager
+
 <Login>
     FloatLayout:
         size: root.width, root.height
@@ -61,6 +64,7 @@
             font_name: 'assets/fonts/static/Fredoka/Fredoka-bold'
             size_hint: 0.2, 0.04
             pos_hint: {'x':0.4, 'top': 0.50}
+            on_release: app.root.current = "homeApp" 
             canvas.before:
                 Color:
                     rgb: utils.get_color_from_hex('#BF98D1')
@@ -73,10 +77,12 @@
             text: "SIGN UP"
             color: (0,0,0)
             background_normal: ''
-            background_color: (0,0,0,0)
+            background_color: utils.get_color_from_hex('#BF98D1')
             font_name: 'assets/fonts/static/Fredoka/Fredoka-bold'
             size_hint: 0.2, 0.04
             pos_hint: {'x':0.4, 'top': 0.44}
+            on_press: app.root.current = 'AccountApp'
+
             canvas.before:
                 Color:
                     rgb: utils.get_color_from_hex('#BF98D1')

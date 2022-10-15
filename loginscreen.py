@@ -6,9 +6,6 @@ from kivy.properties import ListProperty
 from kivy.core.window import Window
 Window.size = (480, 853)
 
-class SignupButton: 
-    b_color = ListProperty()
-
 class Login(Widget):
     pass
 
