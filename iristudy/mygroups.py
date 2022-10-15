@@ -38,11 +38,7 @@ class Scroll(ScrollView):
             SkillStat.add_widget(flaylout)
             layout.add_widget(SkillStat)
 
-        self.add_widget(layout)
-
-class scrollingtest(BoxLayout):
-    pass
-            
+        self.add_widget(layout)       
 
 class mygroups(Screen): 
     pass 
