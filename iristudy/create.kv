@@ -64,11 +64,12 @@
             text: "Group Name: "
             color: (0, 0, 0)
         TextInput:
+            id: groupName
+            
             size_hint: (0.94, 0.05)
             pos_hint: {"center_x": 0.5, "y":0.75}
             font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             hint_text: "Group name"
-            id: groupName
             multiline: False
             cursor_color: utils.get_color_from_hex('#7F31A3')
 
@@ -80,6 +81,8 @@
             color: (0, 0, 0)
             # give id = subject
         Spinner:
+            id: subject
+            
             size_hint: (0.8, 0.06)
             pos_hint: {"center_x": 0.5, "y": 0.63}
             font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
@@ -90,10 +93,8 @@
             background_color: utils.get_color_from_hex('#BF98D1')
             on_press: self.background_color = (1.2, 1.2, 1, 0)
             on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
-            
-            id: subject
             text: "Select subject"
-            values: ["Math", "English", "Biology", "Chemistry", "History"]
+            values: ["Math", "English", "Biology", "Chemistry", "History", "Sus"]
             
             option_cls: Factory.get("MySpinnerOption")
             on_text: root.spinner_clicked(subject.text)
@@ -121,11 +122,11 @@
             text: "Description: "
             color: (0, 0, 0)
         TextInput:
+            id: description
             size_hint: (0.93, 0.24)
             pos_hint: {"center_x": 0.5, "y": 0.20}
             font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             hint_text: "Description"
-            id: description
             multiline: True
             cursor_color: utils.get_color_from_hex('#7F31A3')
 
@@ -143,6 +144,9 @@
             on_press: self.background_color = (1.2, 1.2, 1, 0)
             on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
             on_press: root.submit()
+            on_press: self.background_color = (1.2, 1.2, 1, 0)
+            on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
+            on_press: app.root.current = 'home'
 
                 # assign a group id randomly if the submission is valid
 

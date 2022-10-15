@@ -24,17 +24,21 @@ class CreateFormScreen(Screen):
     # get the username from profile data and then set it to name data
     groupName = ObjectProperty(None)
     subject = ObjectProperty(None)
+    # get the time
     description = ObjectProperty(None)
 
     def popUp(self):
         show_popup()
 
     def spinner_clicked(self, value):
-        self.subject = value;
+        self.subject.text = value;
 
     def submit(self):
-        self.add_widget(Label(text=f'{self.groupName.text}, {self.description.text}'))
+        # self.add_widget(Label(text=f'{self.groupName.text}, {self.description.text}'))
+        # check if invalid input
+        # call a function that will send information to group page?
         self.groupName.text = ""
+        self.subject.text = "Select subject"
         self.description.text = ""
 
 class Pop(FloatLayout):
