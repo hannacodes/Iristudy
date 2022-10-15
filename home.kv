@@ -1,0 +1,19 @@
+<homepage>
+    GridLayout:
+        cols:1
+        size: root.width, root.height
+        FloatLayout:
+            TextInput:
+                size_hint: (.96, None)
+                height: 30
+                pos_hint: {"x": 0.02, "top": .95}
+                hint_text: "Search"
+                multinline:False     
+        GridLayout:
+            cols:3
+            Button:
+                text:"my groups"
+            Button:
+                text:"add group"
+            Button:
+                text:"my profile"
