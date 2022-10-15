@@ -1,90 +1,150 @@
 #:kivy 2.1.0
+#:import utils kivy.utils
 <Profile> 
     FloatLayout: 
         size: root.width, root.height
+        
+        canvas.before:
+            Color:
+                rgb: utils.get_color_from_hex('#F1E6F8')
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
         #top header to go back to homepage
         Label:
             size_hint: (1, .05)
             pos_hint: {"right": 1, "top":1}
             canvas.before:
                 Color:
-                    rgba: 0, 0, 1, 1
+                    rgb: utils.get_color_from_hex('#BF98D1')
                 Rectangle: 
                     pos: self.pos
                     size: self.size
+
         Button: 
-            text:"Iristudy"
-            size_hint:(.3, .05)
-            pos_hint: {"center_x":.5, "top":1}
+            size_hint:(.55, .05)
+            pos_hint: {"center_x":0.5, "top":1}
+            background_normal: ""
+            background_color:utils.get_color_from_hex('#BF98D1')
+            on_press: self.background_color = (1.2, 1.2, 1, 0)
+            on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
+            canvas:
+                Rectangle:
+                    source: "assets/images/logoontop.png"
+                    size: self.size
+                    pos: self.pos
+        #end header
+
         Button:
             background_color: 0, 0, 0, 0
-            size_hint: 0.2, 0.11
-            pos_hint: {'x':0.15, 'top':0.91}
+            size_hint: 0.15, 0.06
+            pos_hint: {'x':0.15, 'top':0.81}
             canvas:
                 Color:
                     rgb: (1, 1, 1, 1) 
                 RoundedRectangle:
+                    source: 'assets/images/flowerpfp.png'
                     pos: (self.pos)
                     radius: [400, ]
+       
+        
         Label: 
             text: "NAME"
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-Medium'
             font_size: "25sp"
             size_hint: 0.01, 0.2
+            color: (0, 0, 0)
             pos_hint: {'x':0.65, 'top':0.97}
 
         Label: 
             text: "pronouns"
             font_size:"15sp"
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             size_hint:  0.01, 0.2
+            color: (0, 0, 0)
             pos_hint: {'x':0.65, 'top':0.94}
         
         Label:
-            text: "Bio"
+            text: "BIO"
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-Medium'
             font_size:"20sp"
             size_hint: 0.2, 0.1
-            pos_hint: {'x':0.05, 'top':0.78}
+            color: (0, 0, 0)
+            pos_hint: {'x':0.05, 'top':0.79}
         
         TextInput: 
             text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non tortor auctor, auctor tellus euismod, dictum arcu. Quisque tortor ex, interdum sodales vehicula id, mattis vel felis. Pellentesque eget quam dui. Morbi est purus, faucibus ac accumsan vitae, suscipit sit amet nisl. Suspendisse et pulvinar diam, et pellentesque nibh."
             disabled:True
             multiline:True
-            font_size: "15sp"
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
+            font_size: "10sp"
+            color: (0, 0, 0)
             size_hint: 0.74, 0.2
             pos_hint: {'x':0.13, 'top':0.71}
 
         Label:
-            text: "User Info"
+            text: "USER INFO"
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-Medium'
+            color: (0, 0, 0)
             font_size:"20sp"
             size_hint: 0.2, 0.1
-            pos_hint: {'x':0.1, 'top':0.48}
-
-        Label:
-            text: "Email: xxxxx@gmail.com"
-            font_size:"15sp"
-            size_hint: 0.2, 0.1
-            pos_hint: {'x':0.19, 'top':0.44}
+            pos_hint: {'x':0.15, 'top':0.49}
         
+
         Label:
-            text: "Email: xxxxx@gmail.com"
+            text: "Email:"
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
+            color: (0, 0, 0)
             font_size:"15sp"
             size_hint: 0.2, 0.1
-            pos_hint: {'x':0.19, 'top':0.44}
+            pos_hint: {'x':0.10, 'top':0.44}
+        
+        TextInput: 
+            text: "xxxx@gmail.com"
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
+            disabled:True
+            font_size: "10sp"
+            size_hint: 0.3, 0.04
+            pos_hint: {'x':0.27, 'top':0.41}
 
 
         Label:
-            text: "Contact"
+            text: "CONTACT"
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-Medium'
+            color: (0, 0, 0)
             font_size:"20sp"
             size_hint: 0.2, 0.1
-            pos_hint: {'x':0.09, 'top':0.38}
+            pos_hint: {'x':0.15, 'top':0.38}
 
-
+        #start of footer
         BoxLayout:
             orientation: "horizontal"
             size_hint: (1, .1)
-            spacing:-2
+            spacing:-1
             Button:
-                text:"my groups"
+                background_normal: ""
+                background_color: utils.get_color_from_hex('#BF98D1')
+                on_press: self.background_color = (.67, .50, .75, 3)
+                on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
+                FloatLayout:
+                    Image:
+                        source: "assets/images/mygroupsicon.png"
+                        size_hint: (0.5, 0.5)
+                        pos_hint: {"center_x": 0.5, "center_y": 0.3}
             Button:
-                text:"add group"
+                background_normal: ""
+                background_color: utils.get_color_from_hex('#BF98D1')
+                FloatLayout:
+                    Image:
+                        source: "assets/images/addgroupicon.png"
+                        size_hint: (0.5, 0.5)
+                        pos_hint: {"center_x": 1.6, "center_y": 0.28}
             Button:
-                text:"my profile"
+                background_normal: ""
+                background_color: utils.get_color_from_hex('#BF98D1')
+                FloatLayout:
+                    Image:
+                        source: "assets/images/myprofileicon.png"
+                        size_hint: (0.4, 0.4)
+                        pos_hint: {"center_x": 2.65, "center_y": 0.28}
