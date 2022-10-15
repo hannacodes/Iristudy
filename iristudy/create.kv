@@ -1,5 +1,10 @@
 #:kivy 2.1.0
 #:import utils kivy.utils
+#:import Factory kivy.factory.Factory
+
+<MySpinnerOption@SpinnerOption>:
+    background_color: utils.get_color_from_hex('#BF98D1')
+    background_down: ''
 
 <Pop>:
     BoxLayout:
@@ -17,7 +22,7 @@
 
 <CreateFormScreen>
     groupName: groupName
-    # subject: subject
+    subject: subject
     description: description
     
     FloatLayout:
@@ -88,7 +93,7 @@
             # give id = subject
         Spinner:
             size_hint: (0.8, 0.06)
-            pos_hint: {"center_x": 0.5, "y": 0.62}
+            pos_hint: {"center_x": 0.5, "y": 0.63}
             font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             bold: True
             color: (0, 0, 0)
@@ -100,11 +105,12 @@
             id: subject
             text: "Select subject"
             values: ["Math", "English", "Biology", "Chemistry", "History"]
-
+            
+            option_cls: Factory.get("MySpinnerOption")
             on_text: root.spinner_clicked(subject.text)
 
         Label:
-            size_hint: (0.1, 0.15)
+            size_hint: (0.8, 0.06)
             pos_hint: {"x": 0.13, "y": 0.53}
             font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             text: "Meeting time: "
@@ -112,6 +118,9 @@
         Button:
             size_hint: (0.5, 0.06)
             pos_hint: {"center_x": 0.5, "y": 0.51}
+            color: (0, 0, 0)
+            background_normal: ""
+            background_color: utils.get_color_from_hex('#BF98D1')
             font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             text: "Choose a time"
             on_release: root.popUp()
