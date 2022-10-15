@@ -10,6 +10,8 @@ from kivy.uix.textinput import TextInput # input text
 from kivy.uix.button import Button # button component
 from kivy.uix.widget import Widget
 from kivy.uix.dropdown import DropDown
+from kivy.uix.scrollview import ScrollView
+from kivy.effects.scroll import ScrollEffect
 from kivy.properties import ObjectProperty
 from kivy.core.window import Window
 Window.size = (480/1.5, 853/1.5)
