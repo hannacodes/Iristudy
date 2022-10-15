@@ -1,16 +1,16 @@
 <homepage>
-    GridLayout:
-        cols:1
+    FloatLayout:
         size: root.width, root.height
-        FloatLayout:
-            TextInput:
-                size_hint: (.96, None)
-                height: 30
-                pos_hint: {"x": 0.02, "top": .95}
-                hint_text: "Search"
-                multinline:False     
-        GridLayout:
-            cols:3
+        TextInput:
+            size_hint: (.94, None)
+            height: 30
+            pos_hint: {"x": 0.03, "top": .98}
+            hint_text: "Search"
+            multinline:False
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: (1, .1)
+            spacing:-2
             Button:
                 text:"my groups"
             Button:
