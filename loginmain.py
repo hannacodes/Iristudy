@@ -5,24 +5,22 @@ from kivy.core.window import Window
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 
-class LoginScreen(Screen):
-    kv = Builder.load_file("login.kv")
-    def __init__(self, **kwargs):  # defining an init method
-        super().__init__(**kwargs)
-        print("build initialized")
-
-class AccountScreen(Screen): 
-    kv = Builder.load_file("account.kv")
-    def __init__(self, **kwargs):  # defining an init method
-        super().__init__(**kwargs)
-
 class WindowManager(ScreenManager):  
     pass
 
+class Login(Screen):
+    Builder.load_file("login.kv")
+    def __init__(self, **kwargs):  
+        super().__init__(**kwargs)
+
+class Account(Screen):
+    kv = Builder.load_file("account.kv")
+    def __init__(self, **kwargs):  
+        super().__init__(**kwargs)
 
 sm = WindowManager() 
 
-screens = [LoginScreen(name="login"), AccountScreen(name="account")]  
+screens = [Login(name="login"), Account(name="AccountApp")]  
 
 for screen in screens:  
     print("widget added")
