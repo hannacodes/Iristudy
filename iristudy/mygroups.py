@@ -16,19 +16,18 @@ from kivy.uix.popup import Popup
 from kivy.graphics import *
 from kivy.utils import *
 
-class P(FloatLayout):
-    def __init__(self, **kwargs):
-        super(FloatLayout, self).__init__(**kwargs)
-        test = Label(text="button pressed", size_hint=(0.6, 0.2), pos_hint = {"x":0.2, "top":1})
-        self.add_widget(test)
+class moreInfoWindow(Popup):
+    pass
 
 class mygroups(Screen): 
     def popUp(self):
         show_popup()
 
 def show_popup(self): 
-        show = P()
-        popupWindow = Popup(title="Popup Win", content = show, size_hint=(None, None), size=(300, 380))
+        #popupWindow = Popup(title="Popup Win",  size_hint=(None, None), size=(300, 380))
+        #flay = P()
+        #popupWindow.add_widget(flay)
+        popupWindow = moreInfoWindow()
         popupWindow.open() 
 
 class infoBtn(Button):
