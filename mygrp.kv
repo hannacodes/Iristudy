@@ -8,10 +8,19 @@
         #    text: "hi" * 100
          #   font_size: "30sp"
     
-    ScrollView: 
-        size_hint: (1, 1)
+    ScrollView:
+        do_scroll_x: False
+        do_scroll_y: True
+        pos_hint: {'x':0, 'y': 0.265}
+        size_hint_y: 0.76
         BoxLayout:
             orientation: "vertical"
+            size:(root.width, root.height)
+            height: self.minimum_height
+            row_default_height: 180
+            row_force_default: True
+            size_hint_y: None
+            height: 1
             size_hint_y: None
             height: self.minimum_height
             Label:
@@ -76,11 +85,6 @@
                 text: "more info"
                 size_hint: (.4, .3)
                 pos_hint: {"center_x": .5}
-                size: self.texture_size
-            #bottom label
-            Label: 
-                text:"\n\n\n\n\n\n\n\n\n" 
-                size_hint_y: None
                 size: self.texture_size
             
 <mygroups>
