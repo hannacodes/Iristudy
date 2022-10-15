@@ -1,4 +1,5 @@
 <homepage>
+    name: "home"
     FloatLayout:
         size: root.width, root.height
         #top header to go back to homepage
@@ -29,6 +30,11 @@
             spacing:-2
             Button:
                 text:"my groups"
+                FloatLayout:
+                    Image:
+                        source: "assets/images/mygroupsicon.png"
+                        size_hint: (0.7, 0.7)
+                        pos_hint: {"center_x": 0.5, "center_y": 0.3}
             Button:
                 text:"add group"
             Button:
