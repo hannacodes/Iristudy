@@ -21,14 +21,13 @@ class MyRelativeLayout(RelativeLayout):
 class Scroll(ScrollView):
     def __init__(self,  **kwargs):
         super(Scroll, self).__init__(**kwargs)
-        layout = GridLayout(cols=1, spacing=20, pos_hint ={'x':0, 'y': 0.5},
-        size_hint_y = None)
+        layout = GridLayout(cols=1, spacing=20, pos_hint ={'x':0, 'y': 0.5}, size_hint_y = None)
         layout.bind(minimum_height=layout.setter('height'))
         # Make sure the height is such that there is something to scroll.
         for i in range(15):
             SkillStat = BoxLayout(height = 80, size_hint_y = None, orientation = "vertical")
-            SkillStat.add_widget(Label(text = "Name\nSubject\nAdmin\n", size_hint_y = None, pos_hint = {"x": -0.3, "top":0}))
-            SkillStat.add_widget(Button(text = "more info", size_hint = (.4, .3), pos_hint = {"center_x": .7, }))
+            SkillStat.add_widget(Label(text = "Name\nSubject\nAdmin", color = (0,0,0,1), size_hint_y = None, pos_hint = {"center_x":.5, "top":0}))
+            SkillStat.add_widget(Button(text = "more info", size_hint = (.4, .2), pos_hint = {"center_x": .5}))
             layout.add_widget(SkillStat)
         self.add_widget(layout)
 

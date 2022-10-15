@@ -115,14 +115,22 @@
                     source: "assets/images/logoontop.png"
                     size: self.size
                     pos: self.pos
+        
+        Label: 
+            text:"My Groups"
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-Medium'
+            font_size: "25sp"
+            color: (0, 0, 0)
+            size_hint: (1, .1)
+            pos_hint: {"right": 1, "top":.95}
         #each group tab 
         
         #scrollingtest:
             #pos_hint: {"x":0, "y": 0}
         
         Scroll: 
-            pos_hint: {"x":0, "top": 0.935}
-            size_hint_y: 0.83
+            pos_hint: {"x":0, "top": 0.85}
+            size_hint_y: 0.745
 
         #homepage buttons on bottom
         BoxLayout:
