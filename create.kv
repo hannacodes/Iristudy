@@ -1,0 +1,33 @@
+#:kivy 2.1.0
+<CreateFormLayout>
+    GridLayout:
+        cols:1
+        size: root.width, root.height
+
+        GridLayout:
+            cols:2
+
+            # buttons 
+            Label:
+                text: "Creater Name: "
+            TextInput:
+                multiline: False
+
+            Label:
+                text: "Group Name: "
+            TextInput:
+                multiline: False
+
+            # subject should be a dropdown
+
+            Label:
+                text: "Description: "
+            TextInput:
+                multiline: True
+
+
+            # assign a random group id, do logic in
+            # python file
+
+        Button:
+            text: "Submit: "
