@@ -41,9 +41,19 @@
             hint_text: "Search"
             multinline:False
             text_validate_unfocus: False
-            on_text_validate: app.root.current = 'search'
             cursor_color: utils.get_color_from_hex('#7F31A3')
+            font_name:'assets/fonts/static/Fredoka/Fredoka-regular'
             
+        Button: 
+            text: "Enter"
+            height:30
+            size_hint: (.2, None)
+            pos_hint: {"x":0.77, "top": 0.92}
+            on_press: app.root.current = 'search'
+            background_color:utils.get_color_from_hex('#BF98D1')
+            font_name:'assets/fonts/static/Fredoka/Fredoka-regular'
+        
+        
         #homepage buttons on bottom
         BoxLayout:
             orientation: "horizontal"
