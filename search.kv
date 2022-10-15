@@ -3,9 +3,39 @@
     
     FloatLayout:
         size: root.width, root.height
+        #top header to go back to homepage
+        Label:
+            size_hint: (1, .05)
+            pos_hint: {"right": 1, "top":1}
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 1, 1
+                Rectangle: 
+                    pos: self.pos
+                    size: self.size
+        Button: 
+            text:"Iristudy"
+            size_hint:(.3, .05)
+            pos_hint: {"center_x":.5, "top":1}
+        #search bar
         TextInput:
             size_hint: (.94, None)
             height: 30
-            pos_hint: {"x": 0.03, "top": .98}
+            pos_hint: {"x": 0.03, "top": 0.93}
             hint_text: "Search"
             multinline:False
+
+        # rectangle of groups to scroll through
+        
+
+        #homepage buttons on bottom
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: (1, .1)
+            spacing:-2
+            Button:
+                text:"my groups"
+            Button:
+                text:"add group"
+            Button:
+                text:"my profile"

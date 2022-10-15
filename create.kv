@@ -1,36 +1,64 @@
 #:kivy 2.1.0
-<CreateFormLayout>
 
-    name: name
+<CreateFormScreen>
     groupName: groupName
     # subject: subject
     description: description
-
-    GridLayout:
-        cols:1
+    
+    FloatLayout:
         size: root.width, root.height
+            # top header to go back to homepage
+        Label:
+            size_hint: (1, .05)
+            pos_hint: {"right": 1, "top":1}
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 1, 1
+                Rectangle: 
+                    pos: self.pos
+                    size: self.size
+        Button: 
+            text:"Iristudy"
+            size_hint:(.3, .05)
+            pos_hint: {"center_x":.5, "top":1}
+        
+        Label:
+            size_hint: (1, 0.18)
+            pos_hint: {"x":0, "top":1}
+            text: "Create a group"
 
-        GridLayout:
-            cols:2
+        # buttons 
+        # Label:
+        #     size_hint: (0.1, 0.15)
+        #     pos_hint: {"x": 0.15, "top": 0.95}
+        #     text: "Creator Name: "
+        # TextInput:
+        #     size_hint: (0.9, 0.05)
+        #     pos_hint: {"x": 0.03, "top": 0.85}
+        #     hint_text: "Creator name"
+        #     id: name
+        #     multiline: False
 
-            # buttons 
-            Label:
-                text: "Creator Name: "
-            TextInput:
-                id: name
-                multiline: False
+        Label:
+            size_hint: (0.1, 0.15)
+            pos_hint: {"x": 0.13, "top": 0.85}
+            text: "Group Name: "
+        TextInput:
+            size_hint: (0.9, 0.05)
+            pos_hint: {"x": 0.03, "y":0.7}
+            hint_text: "Group name"
+            id: groupName
+            multiline: False
 
-            Label:
-                text: "Group Name: "
-            TextInput:
-                id: groupName
-                multiline: False
-
-            Label:
-                text: "Subject: "
-                # give id = subject
-            Label:
-                text: "Subject dropdown placeholder"
+        Label:
+            size_hint: (0.1, 0.15)
+            pos_hint: {"x": 0.085, "y": 0.60}
+            text: "Subject: "
+        Label:
+            size_hint: (0.1, 0.15)
+            pos_hint: {"x": 0.3, "y": 0.55}
+            text: "Subject dropdown holder"
+            # give id = subject
             # DropDown:
             #     id: subject
             #     Button:
@@ -47,22 +75,32 @@
             #         size_hint_y: None
             #         height: 44
             #         on_release: root.select('item2')
-            
+        
 
-            Label:
-                text: "Time: "
-            Label:
-                text: "When2MeetPlaceHolder"
+        Label:
+            size_hint: (0.1, 0.15)
+            pos_hint: {"x": 0.06, "y": 0.50}
+            text: "Time: "
+        Label:
+            size_hint: (0.1, 0.15)
+            pos_hint: {"x": 0.3, "y": 0.45}
+            text: "When2MeetPlaceHolder"
 
-            Label:
-                text: "Description: "
-            TextInput:
-                id: description
-                multiline: True
-
-            Button:
-                text: "Submit"
-                on_press: root.submit()
+        Label:
+            size_hint: (0.1, 0.15)
+            pos_hint: {"x": 0.12, "y": 0.39}
+            text: "Description: "
+        TextInput:
+            size_hint: (0.9, 0.18)
+            pos_hint: {"x": 0.03, "y": 0.26}
+            hint_text: "Description"
+            id: description
+            multiline: True
+        Button:
+            size_hint: (1, 0.1)
+            pos_hint: {"x":0, "y": 0}
+            text: "Submit"
+            on_press: root.submit()
 
                 # assign a group id randomly if the submission is valid
 
