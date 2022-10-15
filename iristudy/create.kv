@@ -6,19 +6,7 @@
     background_color: utils.get_color_from_hex('#BF98D1')
     background_down: ''
 
-<Pop>:
-    BoxLayout:
-        size_hint: (1, 1)
-        pos_hint: {"x":0, "y": 0}
-        Label:
-            text: "You pressed the button"
-            size_hint: (1, 1)
-            pos_hint: {"x": 0.5, "top": 1}
 
-        Button:
-            text: "button"
-            size_hint: (0.8, 0.2)
-            pos_hint: {"x":0.1, "y": 0.1}
 
 <CreateFormScreen>
     groupName: groupName
@@ -112,7 +100,7 @@
 
         Label:
             size_hint: (0.8, 0.06)
-            pos_hint: {"x": 0, "y": 0.56}
+            pos_hint: {"x": -0.22, "y": 0.56}
             font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             text: "Meeting time: "
             color: (0, 0, 0)
