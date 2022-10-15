@@ -39,7 +39,7 @@ class Profile(Screen):
 
 sm = WindowManager() 
 
-screens = [Login(name="login"), Account(name="AccountApp"), Homepage(name="home")]  
+screens = [Login(name="login"), Account(name="AccountApp"), Homepage(name="home"), Profile(name="profile")]  
 
 for screen in screens:  
     print("widget added")
