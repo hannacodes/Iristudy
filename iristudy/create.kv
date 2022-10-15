@@ -85,29 +85,23 @@
             font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             text: "Subject: "
             color: (0, 0, 0)
-        Label:
-            size_hint: (0.1, 0.15)
-            pos_hint: {"x": 0.3, "y": 0.60}
-            text: "Subject dropdown holder"
-            color: (0, 0, 0)
             # give id = subject
-            # DropDown:
-            #     id: subject
-            #     Button:
-            #         text: 'My first Item'
-            #         size_hint_y: None
-            #         height: 44
-            #         on_release: root.select('item1')
-            #     Label:
-            #         text: 'Unselectable item'
-            #         size_hint_y: None
-            #         height: 44
-            #     Button:
-            #         text: 'My second Item'
-            #         size_hint_y: None
-            #         height: 44
-            #         on_release: root.select('item2')
-        
+        Spinner:
+            size_hint: (0.8, 0.06)
+            pos_hint: {"center_x": 0.5, "y": 0.62}
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
+            bold: True
+            color: (0, 0, 0)
+            background_normal: ""
+            background_color: utils.get_color_from_hex('#BF98D1')
+            on_press: self.background_color = (1.2, 1.2, 1, 0)
+            on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
+            
+            id: subject
+            text: "Select subject"
+            values: ["Math", "English", "Biology", "Chemistry", "History"]
+
+            on_text: root.spinner_clicked(subject.text)
 
         Label:
             size_hint: (0.1, 0.15)
