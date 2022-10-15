@@ -2,10 +2,24 @@
 <Profile> 
     FloatLayout: 
         size: root.width, root.height
+        #top header to go back to homepage
+        Label:
+            size_hint: (1, .05)
+            pos_hint: {"right": 1, "top":1}
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 1, 1
+                Rectangle: 
+                    pos: self.pos
+                    size: self.size
+        Button: 
+            text:"Iristudy"
+            size_hint:(.3, .05)
+            pos_hint: {"center_x":.5, "top":1}
         Button:
             background_color: 0, 0, 0, 0
             size_hint: 0.2, 0.11
-            pos_hint: {'x':0.15, 'top':0.92}
+            pos_hint: {'x':0.15, 'top':0.91}
             canvas:
                 Color:
                     rgb: (1, 1, 1, 1) 
@@ -16,13 +30,13 @@
             text: "NAME"
             font_size: "25sp"
             size_hint: 0.01, 0.2
-            pos_hint: {'x':0.65, 'top':0.98}
+            pos_hint: {'x':0.65, 'top':0.97}
 
         Label: 
             text: "pronouns"
             font_size:"15sp"
             size_hint:  0.01, 0.2
-            pos_hint: {'x':0.65, 'top':0.95}
+            pos_hint: {'x':0.65, 'top':0.94}
         
         Label:
             text: "Bio"
@@ -35,8 +49,8 @@
             disabled:True
             multiline:True
             font_size: "15sp"
-            size_hint: 0.6, 0.2
-            pos_hint: {'x':0.3, 'top':0.75}
+            size_hint: 0.74, 0.2
+            pos_hint: {'x':0.13, 'top':0.71}
 
         Label:
             text: "User Info"
@@ -62,3 +76,15 @@
             font_size:"20sp"
             size_hint: 0.2, 0.1
             pos_hint: {'x':0.09, 'top':0.38}
+
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: (1, .1)
+            spacing:-2
+            Button:
+                text:"my groups"
+            Button:
+                text:"add group"
+            Button:
+                text:"my profile"
