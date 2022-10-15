@@ -1,5 +1,19 @@
 #:kivy 2.1.0
 #:import utils kivy.utils
+
+<Pop>:
+    BoxLayout:
+        # sthav
+        Label:
+            text: "You pressed the button"
+            size_hint: (0.6, 0.2)
+            pos_hint: {"x": 0.2, "top": 1}
+
+        Button:
+            text: "button"
+            size_hint: (0.8, 0.2)
+            pos_hint: {"x":0.1, "y": 0.1}
+
 <CreateFormScreen>
     groupName: groupName
     # subject: subject
@@ -34,7 +48,7 @@
             on_press: app.root.current = 'home'
             canvas:
                 Rectangle:
-                    source: "../assets/images/logoontop.png"
+                    source: "assets/images/logoontop.png"
                     size: self.size
                     pos: self.pos
         
@@ -90,8 +104,9 @@
             text: "Meeting time: "
         Button:
             size_hint: (0.5, 0.06)
-            pos_hint: {"x": 0.5, "y": 0.43}
+            pos_hint: {"x": 0.2, "y": 0.475}
             text: "Choose a time"
+            on_release: root.popUp()
 
         Label:
             size_hint: (0.1, 0.15)

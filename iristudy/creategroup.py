@@ -17,6 +17,7 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.scrollview import ScrollView
 from kivy.core.window import Window
 from kivy.uix.screenmanager import Screen
+from kivy.uix.popup import Popup
 Window.size = (480/1.5, 853/1.5)
 
 
@@ -26,11 +27,24 @@ class CreateFormScreen(Screen):
     subject = ObjectProperty(None)
     description = ObjectProperty(None)
 
+    def popUp(self):
+        show_popup()
+
     def submit(self):
         self.add_widget(Label(text=f'{self.groupName.text}, {self.description.text}'))
         self.groupName.text = ""
         self.description.text = ""
 
+
+class Pop(FloatLayout):
+    pass
+
+def show_popup():
+    show = Pop()
+
+    popupWindow = Popup(title="Calendar", content=show, size_hint=(None, None), size=(150, 300))
+    
+    popupWindow.open()
 
 class CreateApp(App):
     def build(self):
