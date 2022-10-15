@@ -104,10 +104,34 @@
         BoxLayout:
             orientation: "horizontal"
             size_hint: (1, .1)
-            spacing:-2
+            spacing:-1
             Button:
-                text:"my groups"
+                background_normal: ""
+                background_color: utils.get_color_from_hex('#BF98D1')
+                on_press: self.background_color = (1.2, 1.2, 1, 0); app.root.current = 'mygroups'
+                on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
+                FloatLayout:
+                    Image:
+                        source: "assets/images/mygroupsicon.png"
+                        size_hint: (0.5, 0.5)
+                        pos_hint: {"center_x": 0.5, "center_y": 0.3}
             Button:
-                text:"add group"
+                background_normal: ""
+                background_color: utils.get_color_from_hex('#BF98D1')
+                on_press: self.background_color = (1.2, 1.2, 1, 0); app.root.current = 'create'
+                on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
+                FloatLayout:
+                    Image:
+                        source: "assets/images/addgroupicon.png"
+                        size_hint: (0.5, 0.5)
+                        pos_hint: {"center_x": 1.6, "center_y": 0.28}
             Button:
-                text:"my profile"
+                background_normal: ""
+                background_color: utils.get_color_from_hex('#BF98D1')
+                on_press: self.background_color = (1.2, 1.2, 1, 0); app.root.current = 'profile'
+                on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
+                FloatLayout:
+                    Image:
+                        source: "assets/images/myprofileicon.png"
+                        size_hint: (0.4, 0.4)
+                        pos_hint: {"center_x": 2.65, "center_y": 0.28}

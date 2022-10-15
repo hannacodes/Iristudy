@@ -40,6 +40,7 @@
             pos_hint: {"x": 0.03, "top": 0.92}
             hint_text: "Search"
             multinline:False
+            text_validate_unfocus: False
             on_text_validate: app.root.current = 'search'
             cursor_color: utils.get_color_from_hex('#7F31A3')
             
