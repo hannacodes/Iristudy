@@ -12,7 +12,7 @@ from kivy.uix.widget import Widget
 class LoginScreen(Widget):
     pass
 
-class LoginScreenApp(GridLayout):
+class LoginScreenApp(App):
     def build(self): 
         return LoginScreen()
     '''def __init__(self, **kwargs):
@@ -29,9 +29,5 @@ class LoginScreenApp(GridLayout):
         a.add_widget(a.glayout)
         self.add_widget(a)'''
         
-
-
-
-
 if __name__ == '__main__':
     LoginScreenApp().run()
