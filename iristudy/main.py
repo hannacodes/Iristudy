@@ -9,7 +9,7 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.relativelayout import RelativeLayout
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.scrollview import ScrollView
-from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.screenmanager import *
 from creategroup import show_popup
 from kivy.utils import * 
 from kivy.graphics import *
@@ -100,7 +100,7 @@ class SearchGroupScreen(Screen):
     def __init__(self, **kwargs):  
         super().__init__(**kwargs)
 
-sm = WindowManager() 
+sm = ScreenManager(transition=NoTransition()) 
 
 screens = [Login(name="login"), Account(name="AccountApp"), Homepage(name="home"), Profile(name="profile"), CreateFormScreen(name='create'), SearchGroupScreen(name='search'), mygroups(name="mygroups")]  
 

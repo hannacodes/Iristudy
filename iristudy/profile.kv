@@ -74,6 +74,7 @@
             pos_hint: {'x':0.05, 'top':0.79}
         
         TextInput: 
+            id: bio
             text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non tortor auctor, auctor tellus euismod, dictum arcu. Quisque tortor ex, interdum sodales vehicula id, mattis vel felis. Pellentesque eget quam dui. Morbi est purus, faucibus ac accumsan vitae, suscipit sit amet nisl. Suspendisse et pulvinar diam, et pellentesque nibh."
             disabled:True
             multiline:True
@@ -104,6 +105,7 @@
             pos_hint: {'x':0.06, 'top':0.45}
         
         TextInput: 
+            id: username
             text: "@XXXXXXXXXXXX"
             background_color: (1,1,1,0.5)
             foreground_color: (0,0,0)
@@ -123,6 +125,7 @@
             pos_hint: {'x':0.06, 'top':0.39}
         
         TextInput: 
+            id: password
             text: "password"
             password: True
             background_color: (1,1,1,0.5)
@@ -152,6 +155,7 @@
             pos_hint: {'x':0.02, 'top':0.27}
         
         TextInput: 
+            id: email
             text: "xxxxx@gmail.com"
             background_color: (1,1,1,0.5)
             foreground_color: (0,0,0)
@@ -161,6 +165,20 @@
             font_size: "10sp"
             size_hint: 0.3, 0.04
             pos_hint: {'x':0.25, 'top':0.24}
+
+        Button: 
+            text: "Edit"
+            background_color: utils.get_color_from_hex('#BF98D1')
+            on_press: email.disabled = False; bio.disabled = False; password.disabled = False; username.disabled = False; 
+            size_hint: 0.2, 0.05
+            pos_hint: {"x": 0.5, "top": 0.18}
+        
+        Button: 
+            text: "Log Out"
+            background_color: utils.get_color_from_hex('#BF98D1')
+            on_press: app.root.current = 'login'; 
+            size_hint: 0.2, 0.05
+            pos_hint: {"x": 0.3, "top": 0.18}
 
         #start of footer
         BoxLayout:
