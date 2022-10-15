@@ -13,7 +13,7 @@
 
         #top header to go back to homepage
         Label:
-            size_hint: (1, .05)
+            size_hint: (1, .06)
             pos_hint: {"right": 1, "top":1}
             canvas.before:
                 Color:
@@ -77,6 +77,9 @@
             text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non tortor auctor, auctor tellus euismod, dictum arcu. Quisque tortor ex, interdum sodales vehicula id, mattis vel felis. Pellentesque eget quam dui. Morbi est purus, faucibus ac accumsan vitae, suscipit sit amet nisl. Suspendisse et pulvinar diam, et pellentesque nibh."
             disabled:True
             multiline:True
+            background_color: (1,1,1,0.5)
+            foreground_color: (0,0,0)
+            cursor_color: utils.get_color_from_hex('#7F31A3')
             font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             font_size: "10sp"
             color: (0, 0, 0)
@@ -89,24 +92,47 @@
             color: (0, 0, 0)
             font_size:"20sp"
             size_hint: 0.2, 0.1
-            pos_hint: {'x':0.15, 'top':0.49}
+            pos_hint: {'x':0.15, 'top':0.50}
         
 
         Label:
-            text: "Email:"
+            text: "Username:"
             font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             color: (0, 0, 0)
             font_size:"15sp"
-            size_hint: 0.2, 0.1
-            pos_hint: {'x':0.10, 'top':0.44}
+            size_hint: 0.3, 0.1
+            pos_hint: {'x':0.06, 'top':0.45}
         
         TextInput: 
-            text: "xxxx@gmail.com"
+            text: "@XXXXXXXXXXXX"
+            background_color: (1,1,1,0.5)
+            foreground_color: (0,0,0)
+            cursor_color: utils.get_color_from_hex('#7F31A3')
             font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             disabled:True
             font_size: "10sp"
             size_hint: 0.3, 0.04
-            pos_hint: {'x':0.27, 'top':0.41}
+            pos_hint: {'x':0.33, 'top':0.42}
+        
+        Label:
+            text: "Password:"
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
+            color: (0, 0, 0)
+            font_size:"15sp"
+            size_hint: 0.3, 0.1
+            pos_hint: {'x':0.06, 'top':0.39}
+        
+        TextInput: 
+            text: "password"
+            password: True
+            background_color: (1,1,1,0.5)
+            foreground_color: (0,0,0)
+            cursor_color: utils.get_color_from_hex('#7F31A3')
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
+            disabled:True
+            font_size: "10sp"
+            size_hint: 0.3, 0.04
+            pos_hint: {'x':0.33, 'top':0.36}
 
 
         Label:
@@ -115,7 +141,26 @@
             color: (0, 0, 0)
             font_size:"20sp"
             size_hint: 0.2, 0.1
-            pos_hint: {'x':0.15, 'top':0.38}
+            pos_hint: {'x':0.14, 'top':0.32}
+
+        Label:
+            text: "Email:"
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
+            color: (0, 0, 0)
+            font_size:"15sp"
+            size_hint: 0.3, 0.1
+            pos_hint: {'x':0.02, 'top':0.27}
+        
+        TextInput: 
+            text: "xxxxx@gmail.com"
+            background_color: (1,1,1,0.5)
+            foreground_color: (0,0,0)
+            cursor_color: utils.get_color_from_hex('#7F31A3')
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
+            disabled:True
+            font_size: "10sp"
+            size_hint: 0.3, 0.04
+            pos_hint: {'x':0.25, 'top':0.24}
 
         #start of footer
         BoxLayout:
