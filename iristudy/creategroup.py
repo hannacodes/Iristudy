@@ -42,7 +42,7 @@ class Pop(FloatLayout):
 def show_popup():
     show = Pop()
 
-    popupWindow = Popup(title="Calendar", content=show, size_hint=(None, None), size=(150, 300))
+    popupWindow = Popup(title="Calendar", content=show, size_hint=(None, None), size=(300, 380))
     
     popupWindow.open()
 

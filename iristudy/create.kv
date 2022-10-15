@@ -3,11 +3,12 @@
 
 <Pop>:
     BoxLayout:
-        # sthav
+        size_hint: (1, 1)
+        pos_hint: {"x":0, "y": 0}
         Label:
             text: "You pressed the button"
-            size_hint: (0.6, 0.2)
-            pos_hint: {"x": 0.2, "top": 1}
+            size_hint: (1, 1)
+            pos_hint: {"x": 0.5, "top": 1}
 
         Button:
             text: "button"
@@ -56,6 +57,7 @@
             size_hint: (1, 0.18)
             pos_hint: {"x":0, "top":1}
             text: "Create a group"
+            color: (0, 0, 0)
 
 
         # buttons 
@@ -63,6 +65,7 @@
             size_hint: (0.1, 0.15)
             pos_hint: {"x": 0.13, "top": 0.85}
             text: "Group Name: "
+            color: (0, 0, 0)
         TextInput:
             size_hint: (0.9, 0.05)
             pos_hint: {"x": 0.03, "y":0.7}
@@ -73,12 +76,14 @@
 
         Label:
             size_hint: (0.1, 0.15)
-            pos_hint: {"x": 0.13, "top": 0.75}
+            pos_hint: {"x": 0.08, "top": 0.75}
             text: "Subject: "
+            color: (0, 0, 0)
         Label:
             size_hint: (0.1, 0.15)
             pos_hint: {"x": 0.3, "y": 0.55}
             text: "Subject dropdown holder"
+            color: (0, 0, 0)
             # give id = subject
             # DropDown:
             #     id: subject
@@ -100,21 +105,23 @@
 
         Label:
             size_hint: (0.1, 0.15)
-            pos_hint: {"x": 0.13, "top": 0.65}
+            pos_hint: {"x": 0.14, "top": 0.65}
             text: "Meeting time: "
+            color: (0, 0, 0)
         Button:
             size_hint: (0.5, 0.06)
-            pos_hint: {"x": 0.2, "y": 0.475}
+            pos_hint: {"x": 0.23, "y": 0.46}
             text: "Choose a time"
             on_release: root.popUp()
 
         Label:
             size_hint: (0.1, 0.15)
-            pos_hint: {"x": 0.13, "top": 0.85}
+            pos_hint: {"x": 0.12, "top": 0.48}
             text: "Description: "
+            color: (0, 0, 0)
         TextInput:
             size_hint: (0.9, 0.18)
-            pos_hint: {"x": 0.03, "y": 0.26}
+            pos_hint: {"x": 0.03, "y": 0.20}
             hint_text: "Description"
             id: description
             multiline: True
