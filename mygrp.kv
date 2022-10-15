@@ -1,3 +1,4 @@
+#:import utils kivy.utils
 <scrollingtest>:
     
     #ScrollView:
@@ -11,18 +12,16 @@
     ScrollView:
         do_scroll_x: False
         do_scroll_y: True
-        pos_hint: {'x':0, 'y': 0.265}
+        pos_hint: {'x':0, 'y': 0.256}
         size_hint_y: 0.76
         BoxLayout:
-            orientation: "vertical"
             size:(root.width, root.height)
             height: self.minimum_height
             row_default_height: 180
             row_force_default: True
             size_hint_y: None
             height: 1
-            size_hint_y: None
-            height: self.minimum_height
+            orientation: "vertical"
             Label:
                 text: "Name\nSubject\nAdmin\n" 
                 size_hint_y: None
@@ -90,41 +89,71 @@
 <mygroups>
     FloatLayout:
         size: root.width, root.height
+        canvas.before: 
+            Color: 
+                rgb: utils.get_color_from_hex('#F1E6F8')
+            Rectangle:
+                pos: self.pos
+                size: self.size
         #top header to go back to homepage
         Label:
-            size_hint: (1, .05)
+            size_hint: (1, .06)
             pos_hint: {"right": 1, "top":1}
             canvas.before:
                 Color:
-                    rgba: 0, 0, 1, 1
+                    rgb: utils.get_color_from_hex('#BF98D1')
                 Rectangle: 
                     pos: self.pos
                     size: self.size
         Button: 
-            text:"Iristudy"
-            size_hint:(.3, .05)
+            size_hint:(.55, .05)
             pos_hint: {"center_x":.5, "top":1}
-
-        Label: 
-            text:"My Groups"
-            font_size: 20
-            size_hint: (1, .08)
-            pos_hint: {"right": 1, "top":.95}
-
+            background_normal: ""
+            background_color: utils.get_color_from_hex('#BF98D1')
+            on_press: self.background_color = (1.2, 1.2, 1, 0)
+            on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
+            canvas:
+                Rectangle:
+                    source: "assets/images/logoontop.png"
+                    size: self.size
+                    pos: self.pos
         #each group tab 
         
         scrollingtest:
-            pos_hint: {"top": .85}
+            pos_hint: {"x":0, "y": 0}
 
         #homepage buttons on bottom
         BoxLayout:
             orientation: "horizontal"
             size_hint: (1, .1)
-            spacing:-2
-            padding: -2
+            spacing:-1
             Button:
-                text:"my groups"
+                background_normal: ""
+                background_color: utils.get_color_from_hex('#BF98D1')
+                on_press: self.background_color = (1.2, 1.2, 1, 0)
+                on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
+                FloatLayout:
+                    Image:
+                        source: "assets/images/mygroupsicon.png"
+                        size_hint: (0.5, 0.5)
+                        pos_hint: {"center_x": 0.5, "center_y": 0.3}
             Button:
-                text:"add group"
+                background_normal: ""
+                background_color: utils.get_color_from_hex('#BF98D1')
+                on_press: self.background_color = (1.2, 1.2, 1, 0)
+                on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
+                FloatLayout:
+                    Image:
+                        source: "assets/images/addgroupicon.png"
+                        size_hint: (0.5, 0.5)
+                        pos_hint: {"center_x": 1.6, "center_y": 0.28}
             Button:
-                text:"my profile"
+                background_normal: ""
+                background_color: utils.get_color_from_hex('#BF98D1')
+                on_press: self.background_color = (1.2, 1.2, 1, 0)
+                on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
+                FloatLayout:
+                    Image:
+                        source: "assets/images/myprofileicon.png"
+                        size_hint: (0.4, 0.4)
+                        pos_hint: {"center_x": 2.65, "center_y": 0.28}
