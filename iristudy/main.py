@@ -6,11 +6,13 @@ from kivy.lang import Builder
 from kivy.properties import ObjectProperty
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
+from kivy.uix.relativelayout import RelativeLayout
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.screenmanager import ScreenManager, Screen
 from creategroup import show_popup
-from kivy.utils import *
+from kivy.utils import * 
+from kivy.graphics import *
 
 #from mygroups import mygroups
 
@@ -51,12 +53,19 @@ class GroupLayout(BoxLayout):
 class Scroll(ScrollView):
     def __init__(self,  **kwargs):
         super(Scroll, self).__init__(**kwargs)
-        layout = GridLayout(cols=1, spacing=1, pos_hint ={'x':0, 'y': 0}, size_hint_y = None, height = "0.7")
+        layout = GridLayout(cols=1, spacing=1, pos_hint ={'x':0, 'y': 0}, size_hint_y = None, height = "0.7") 
+
         layout.bind(minimum_height=layout.setter('height'))
         # Make sure the height is such that there is something to scroll.
-        for i in range(15):
+        for i in range(2):
+            rlayout = RelativeLayout(height=150, size_hint_y=None, size_hint_x=self.width)
+            with rlayout.canvas.before: 
+                Color(0.9, 0.8, 0.94, 1)
+                Rectangle(pos=(self.pos[0] + 40, self.pos[1]+32), size=(self.width+140, 120))
+
             group = GroupLayout("name", "subject", "admin", spacing = 2, height = 150, orientation = "vertical", size_hint_y = None)
-            layout.add_widget(group)
+            rlayout.add_widget(group)
+            layout.add_widget(rlayout)
 
         self.add_widget(layout)
 
