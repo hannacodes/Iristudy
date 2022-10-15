@@ -6,6 +6,10 @@ Window.size = (480/1.5, 853/1.5)
 
 from kivy.app import App 
 from kivy.uix.widget import Widget 
+from kivy.uix.boxlayout import BoxLayout
+
+class scrollingtest(BoxLayout):
+    pass
 
 class mygroups(Widget): 
     pass 
