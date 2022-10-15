@@ -9,6 +9,7 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.screenmanager import ScreenManager, Screen
+from creategroup import show_popup
 from kivy.utils import *
 
 #from mygroups import mygroups
@@ -37,6 +38,16 @@ class mygroups(Screen):
     def __init__(self, **kwargs):  
         super().__init__(**kwargs)
 
+class GroupLayout(BoxLayout): 
+    def __init__(self, name, subject, admin, **kwargs):
+        super().__init__(**kwargs)    
+        self.add_widget(Label(text = name, color = (0,0,0,1), size_hint = (None, None), size = (80, 20), pos_hint = {"center_x":.5, "top":0}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular'))
+        self.add_widget(Label(text = subject, color = (0,0,0,1), size_hint = (None, None), size = (80, 20), pos_hint = {"center_x":.5, "top":0}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular'))
+        self.add_widget(Label(text = admin, color = (0,0,0,1), size_hint = (None, None), size = (80, 20), pos_hint = {"center_x":.5, "top":0}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular'))
+        flaylout = FloatLayout(size_hint = (1, 1))
+        flaylout.add_widget(Button(text = "more info", size_hint = (0.3, 0.4), pos_hint = {"center_x": .5, "top": 0.9}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular', background_color = get_color_from_hex('#BF98D1'), background_normal = ''))
+        self.add_widget(flaylout)
+
 class Scroll(ScrollView):
     def __init__(self,  **kwargs):
         super(Scroll, self).__init__(**kwargs)
@@ -44,15 +55,8 @@ class Scroll(ScrollView):
         layout.bind(minimum_height=layout.setter('height'))
         # Make sure the height is such that there is something to scroll.
         for i in range(15):
-            #SkillStats = BoxLayout(size_hint_y = None, orientation = "vertical")
-            SkillStat = BoxLayout(spacing = 2, height = 150, orientation = "vertical", size_hint_y = None)
-            SkillStat.add_widget(Label(text = "Name", color = (0,0,0,1), size_hint = (None, None), size = (80, 20), pos_hint = {"center_x":.5, "top":0}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular'))
-            SkillStat.add_widget(Label(text = "Subject", color = (0,0,0,1), size_hint = (None, None), size = (80, 20), pos_hint = {"center_x":.5, "top":0}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular'))
-            SkillStat.add_widget(Label(text = "Admin", color = (0,0,0,1), size_hint = (None, None), size = (80, 20), pos_hint = {"center_x":.5, "top":0}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular'))
-            flaylout = FloatLayout(size_hint = (1, 1))
-            flaylout.add_widget(Button(text = "more info", size_hint = (0.3, 0.4), pos_hint = {"center_x": .5, "top": 0.9}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular', background_color = get_color_from_hex('#BF98D1'), background_normal = ''))
-            SkillStat.add_widget(flaylout)
-            layout.add_widget(SkillStat)
+            group = GroupLayout("name", "subject", "admin", spacing = 2, height = 150, orientation = "vertical", size_hint_y = None)
+            layout.add_widget(group)
 
         self.add_widget(layout)
 
@@ -69,6 +73,12 @@ class CreateFormScreen(Screen):
     groupName = ObjectProperty(None)
     subject = ObjectProperty(None)
     description = ObjectProperty(None)
+
+    def popUp(self):
+        show_popup()
+
+    def spinner_clicked(self, value):
+        self.subject = value
 
     def submit(self):
         self.add_widget(Label(text=f'{self.groupName.text}, {self.description.text}'))
