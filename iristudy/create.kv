@@ -95,6 +95,7 @@
             size_hint: (0.8, 0.06)
             pos_hint: {"center_x": 0.5, "y": 0.63}
             font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
+
             bold: True
             color: (0, 0, 0)
             background_normal: ""
@@ -111,7 +112,7 @@
 
         Label:
             size_hint: (0.8, 0.06)
-            pos_hint: {"x": 0.13, "y": 0.53}
+            pos_hint: {"x": 0, "y": 0.56}
             font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             text: "Meeting time: "
             color: (0, 0, 0)
@@ -124,7 +125,7 @@
             font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             text: "Choose a time"
             on_release: root.popUp()
-
+            
         Label:
             size_hint: (0.1, 0.15)
             pos_hint: {"x": 0.12, "top": 0.55}
