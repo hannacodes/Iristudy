@@ -21,14 +21,14 @@
                 Rectangle: 
                     pos: self.pos
                     size: self.size
-
         Button: 
             size_hint:(.55, .05)
-            pos_hint: {"center_x":0.5, "top":1}
+            pos_hint: {"center_x":.5, "top":1}
             background_normal: ""
-            background_color:utils.get_color_from_hex('#BF98D1')
+            background_color: utils.get_color_from_hex('#BF98D1')
             on_press: self.background_color = (1.2, 1.2, 1, 0)
             on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
+            on_press: app.root.current = 'home'
             canvas:
                 Rectangle:
                     source: "assets/images/logoontop.png"
@@ -170,7 +170,7 @@
             Button:
                 background_normal: ""
                 background_color: utils.get_color_from_hex('#BF98D1')
-                on_press: self.background_color = (.67, .50, .75, 3)
+                on_press: self.background_color = (1.2, 1.2, 1, 0); app.root.current = 'mygroups'
                 on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
                 FloatLayout:
                     Image:
@@ -180,6 +180,8 @@
             Button:
                 background_normal: ""
                 background_color: utils.get_color_from_hex('#BF98D1')
+                on_press: self.background_color = (1.2, 1.2, 1, 0); app.root.current = 'create'
+                on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
                 FloatLayout:
                     Image:
                         source: "assets/images/addgroupicon.png"
@@ -188,6 +190,8 @@
             Button:
                 background_normal: ""
                 background_color: utils.get_color_from_hex('#BF98D1')
+                on_press: self.background_color = (1.2, 1.2, 1, 0); app.root.current = 'profile'
+                on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
                 FloatLayout:
                     Image:
                         source: "assets/images/myprofileicon.png"

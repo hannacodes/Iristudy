@@ -16,10 +16,11 @@ from kivy.properties import ObjectProperty
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.scrollview import ScrollView
 from kivy.core.window import Window
+from kivy.uix.screenmanager import Screen
 Window.size = (480/1.5, 853/1.5)
 
 
-class CreateFormScreen(Widget):
+class CreateFormScreen(Screen):
     # get the username from profile data and then set it to name data
     groupName = ObjectProperty(None)
     subject = ObjectProperty(None)
