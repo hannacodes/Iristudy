@@ -1,21 +1,35 @@
+#:import utils kivy.utils
 <Homepage>
     name: "home"
     FloatLayout:
         size: root.width, root.height
+        canvas.before: 
+            Color: 
+                rgb: utils.get_color_from_hex('#F1E6F8')
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        
         #top header to go back to homepage
         Label:
             size_hint: (1, .05)
             pos_hint: {"right": 1, "top":1}
             canvas.before:
                 Color:
-                    rgba: 0, 0, 1, 1
+                    rgb: utils.get_color_from_hex('#BF98D1')
                 Rectangle: 
                     pos: self.pos
                     size: self.size
         Button: 
-            text:"Iristudy"
-            size_hint:(.3, .05)
+            size_hint:(.55, .05)
             pos_hint: {"center_x":.5, "top":1}
+            background_normal: ""
+            background_color: utils.get_color_from_hex('#BF98D1')
+            FloatLayout:
+                Image:
+                    source: "assets/images/logoontop.png"
+                    size_hint: (1.6,1.6)
+                    pos_hint: {"center_x":1.6, "top":6.35}
         #search bar
         TextInput:
             size_hint: (.94, None)
@@ -23,18 +37,35 @@
             pos_hint: {"x": 0.03, "top": 0.93}
             hint_text: "Search"
             multinline:False
+            cursor_color: utils.get_color_from_hex('#7F31A3')
         #homepage buttons on bottom
         BoxLayout:
             orientation: "horizontal"
             size_hint: (1, .1)
-            spacing:-2
+            spacing:-1
             Button:
+                background_normal: ""
+                background_color: utils.get_color_from_hex('#BF98D1')
+                on_press: self.background_color = (.67, .50, .75, 3)
+                on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
                 FloatLayout:
                     Image:
                         source: "assets/images/mygroupsicon.png"
-                        size_hint: (0.6, 0.6)
+                        size_hint: (0.5, 0.5)
                         pos_hint: {"center_x": 0.5, "center_y": 0.3}
             Button:
-                text:"add group"
+                background_normal: ""
+                background_color: utils.get_color_from_hex('#BF98D1')
+                FloatLayout:
+                    Image:
+                        source: "assets/images/addgroupicon.png"
+                        size_hint: (0.5, 0.5)
+                        pos_hint: {"center_x": 1.6, "center_y": 0.28}
             Button:
-                text:"my profile"
+                background_normal: ""
+                background_color: utils.get_color_from_hex('#BF98D1')
+                FloatLayout:
+                    Image:
+                        source: "assets/images/myprofileicon.png"
+                        size_hint: (0.4, 0.4)
+                        pos_hint: {"center_x": 2.65, "center_y": 0.28}
