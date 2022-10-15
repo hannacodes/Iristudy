@@ -15,7 +15,7 @@ class MyGridLayout(GridLayout):
     # will initialize keywords
     def __init__(self, **kwargs):
         # call the grid layout constructor
-        super(myGridLayout, self).__init__(**kwargs)
+        super(MyGridLayout, self).__init__(**kwargs)
 
         # set the columns of the grid
         self.cols = 2
@@ -26,9 +26,9 @@ class MyGridLayout(GridLayout):
         self.name = TextInput(multiline=True)
         self.add_widget(self.name)
 
-        # copy above to add as many widgets as you want ^
-        
-        # add the widgets
+        # copy above to add as many widgets as you want 
+
+        # add Subject widget
         self.add_widget(Label(text="Subject: "))
         # add input box
         self.name = TextInput(multiline=False)
@@ -36,7 +36,7 @@ class MyGridLayout(GridLayout):
 
 class MyApp(App):
     def build(self):
-        return Label(text="Create group")
+        return MyGridLayout()
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     MyApp().run()
