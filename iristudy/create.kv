@@ -55,20 +55,25 @@
         
         Label:
             size_hint: (1, 0.18)
-            pos_hint: {"x":0, "top":1}
-            text: "Create a group"
+            pos_hint: {"x":0, "top":0.98}
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
+            font_size: 28
+            bold: True
+            text: "CREATE A GROUP"
             color: (0, 0, 0)
 
 
         # buttons 
         Label:
             size_hint: (0.1, 0.15)
-            pos_hint: {"x": 0.13, "top": 0.85}
+            pos_hint: {"x": 0.13, "top": 0.90}
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             text: "Group Name: "
             color: (0, 0, 0)
         TextInput:
-            size_hint: (0.9, 0.05)
-            pos_hint: {"x": 0.03, "y":0.7}
+            size_hint: (0.94, 0.05)
+            pos_hint: {"center_x": 0.5, "y":0.75}
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             hint_text: "Group name"
             id: groupName
             multiline: False
@@ -76,12 +81,13 @@
 
         Label:
             size_hint: (0.1, 0.15)
-            pos_hint: {"x": 0.08, "top": 0.75}
+            pos_hint: {"x": 0.07, "y": 0.64}
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             text: "Subject: "
             color: (0, 0, 0)
         Label:
             size_hint: (0.1, 0.15)
-            pos_hint: {"x": 0.3, "y": 0.55}
+            pos_hint: {"x": 0.3, "y": 0.60}
             text: "Subject dropdown holder"
             color: (0, 0, 0)
             # give id = subject
@@ -105,23 +111,27 @@
 
         Label:
             size_hint: (0.1, 0.15)
-            pos_hint: {"x": 0.14, "top": 0.65}
+            pos_hint: {"x": 0.13, "y": 0.53}
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             text: "Meeting time: "
             color: (0, 0, 0)
         Button:
             size_hint: (0.5, 0.06)
-            pos_hint: {"x": 0.23, "y": 0.46}
+            pos_hint: {"center_x": 0.5, "y": 0.51}
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             text: "Choose a time"
             on_release: root.popUp()
 
         Label:
             size_hint: (0.1, 0.15)
-            pos_hint: {"x": 0.12, "top": 0.48}
+            pos_hint: {"x": 0.12, "top": 0.55}
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             text: "Description: "
             color: (0, 0, 0)
         TextInput:
-            size_hint: (0.9, 0.18)
-            pos_hint: {"x": 0.03, "y": 0.20}
+            size_hint: (0.93, 0.24)
+            pos_hint: {"center_x": 0.5, "y": 0.20}
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
             hint_text: "Description"
             id: description
             multiline: True
@@ -129,9 +139,17 @@
 
 
         Button:
-            size_hint: (1, 0.1)
-            pos_hint: {"x":0, "y": 0}
-            text: "Submit"
+            size_hint: (0.4, 0.1)
+            pos_hint: {"center_x": 0.5, "y": 0.06}
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
+            bold: True
+            color: (0, 0, 0)
+            font_size: 25
+            text: "SUBMIT"
+            background_normal: ""
+            background_color: utils.get_color_from_hex('#BF98D1')
+            on_press: self.background_color = (1.2, 1.2, 1, 0)
+            on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
             on_press: root.submit()
 
                 # assign a group id randomly if the submission is valid
