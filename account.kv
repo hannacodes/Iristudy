@@ -1,53 +1,101 @@
 #:kivy 2.1.0
+#:import utils kivy.utils
+
 <Account> 
     FloatLayout: 
         size: root.width, root.height
+        canvas.before:
+            Color:
+                rgb: utils.get_color_from_hex('#F1E6F8')
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
         Image:
             source: 'assets/images/logocropped.png'
-            size_hint: 0.2, 0.1
-            pos_hint: {'x':0.4, 'top': 0.9}
+            size_hint: 0.3, 0.2
+            pos_hint: {'x':0.35, 'top': 0.91}
 
         Label: 
             text: "Email Address" 
+            color: (0, 0, 0)
             size_hint: 0.25, 0.05
-            pos_hint: {'x':0.23, 'top': 0.74}
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
+            pos_hint: {'x':0.23, 'top': 0.72}
 
         TextInput: 
             multiline: False
             hint_text: "Email Address"
-            size_hint: 0.5, 0.04
-            pos_hint: {'x':0.25, 'top': 0.7}
+            size_hint: 0.5, 0.05
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
+            background_normal: ''
+            background_color: (1,1,1,0.5)
+            foreground_color: (0,0,0)
+            pos_hint: {'x':0.25, 'top': 0.68}
 
         Label: 
             text: "Create a Username" 
+            color: (0, 0, 0)
             size_hint: 0.25, 0.05
-            pos_hint: {'x':0.26, 'top': 0.66}
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
+            pos_hint: {'x':0.26, 'top': 0.63}
         
         TextInput: 
             multiline: False
             hint_text: "Username"
-            size_hint: 0.5, 0.04
-            pos_hint: {'x':0.25, 'top': 0.62}
+            size_hint: 0.5, 0.05
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
+            background_normal: ''
+            background_color: (1,1,1,0.5)
+            foreground_color: (0,0,0)
+            pos_hint: {'x':0.25, 'top': 0.59}
         
         Label: 
             text: "Create a Password" 
+            color: (0, 0, 0)
             size_hint: 0.25, 0.05
-            pos_hint: {'x':0.26, 'top': 0.58}
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
+            pos_hint: {'x':0.26, 'top': 0.54}
 
         TextInput: 
             multiline: False
             password: True
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
+            background_normal: ''
+            background_color: (1,1,1,0.5)
+            foreground_color: (0,0,0)
             hint_text: "Password"
-            size_hint: 0.5, 0.04
-            pos_hint: {'x':0.25, 'top': 0.54}
+            size_hint: 0.5, 0.05
+            pos_hint: {'x':0.25, 'top': 0.50}
 
         Button: 
             text: "Create Account"
-            size_hint: 0.3, 0.03
-            pos_hint: {'x':0.35, 'top': 0.48}
+            size_hint: 0.4, 0.04
+            color: (0,0,0)
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-Medium'
+            pos_hint: {'x':0.3, 'top': 0.43}
+            background_color: (0,0,0,0)
+            on_press: app.root.current = 'home'
+            canvas.before:
+                Color:
+                    rgb: utils.get_color_from_hex('#BF98D1')
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [10]
         
         Button: 
             text: "Already have an account?"
-            size_hint: 0.4, 0.03
-            pos_hint: {'x':0.30, 'top': 0.44}
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-Medium'
+            color: (0,0,0)
+            size_hint: 0.6, 0.04
+            background_color: (0,0,0,0)
+            pos_hint: {'x':0.2, 'top': 0.38}
             on_press: app.root.current = 'login'
+            canvas.before:
+                Color:
+                    rgb: utils.get_color_from_hex('#BF98D1')
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [10]

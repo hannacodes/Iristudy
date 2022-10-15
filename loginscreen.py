@@ -6,12 +6,11 @@ from kivy.lang import Builder
 from kivy.properties import ListProperty
 from kivy.uix.screenmanager import Screen
 from kivy.core.window import Window
-Window.size = (480, 853)
+Window.size = (480/1.5, 853/1.5)
 
 class Login(Screen):
     Builder.load_file("login.kv")
-    def __init__(self, **kwargs): 
-         
+    def __init__(self, **kwargs):  
         super().__init__(**kwargs)
 
 class LoginApp(App):
