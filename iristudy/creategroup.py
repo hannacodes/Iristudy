@@ -3,9 +3,6 @@ Create group screen
 form like with subject, set a random group id,
 ask for group name..
 """
-
-from decimal import Clamped
-from turtle import onclick
 import kivy
 from kivy.app import App
 from kivy.uix.label import Label # writing
