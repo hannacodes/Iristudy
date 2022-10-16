@@ -17,7 +17,7 @@ from kivy.uix.scrollview import ScrollView
 from kivy.core.window import Window
 from kivy.uix.screenmanager import Screen
 from kivy.uix.popup import Popup
-from numpy import spacing
+from kivy.utils import *
 Window.size = (480/1.5, 853/1.5)
 
 
@@ -58,16 +58,16 @@ class NewBtn(Button):
         a.background_color = (0,1,0,1)
 
 def show_popup():
-    popupWindow = Popup(title="Potential Meeting Times", size_hint=(None, None), size=(300, 380), title_size="20sp", title_font='assets/fonts/static/Fredoka/Fredoka-medium')
+    popupWindow = Popup(title="Potential Meeting Times", size_hint=(None, None), size=(300, 380), title_size="20sp", title_font='assets/fonts/static/Fredoka/Fredoka-medium', background = '', background_color= (0.91, 0.82, 0.94, 1), separator_color=get_color_from_hex("#a46bbe"), title_color=(0,0,0,1))
     glay = GridLayout(cols=8, size_hint = (1, 1), spacing=2)
     arr = ["S", "M", "Tu", "W", "Th", "F", "S"]
     glay.add_widget(Label())
     for i in range(7): 
-        glay.add_widget(Label(text=arr[i], font_name='assets/fonts/static/Fredoka/Fredoka-regular'))
+        glay.add_widget(Label(text=arr[i], font_name='assets/fonts/static/Fredoka/Fredoka-regular', color=(0,0,0,1)))
 
     arr2 = ["9:00am", "10:00am", "11:00am", "12:00pm", "1:00pm", "2:00pm", "3:00pm"]
     for x in range(7): 
-        lbl = Label(text=arr2[x], font_size="10sp", font_name='assets/fonts/static/Fredoka/Fredoka-regular')
+        lbl = Label(text=arr2[x], font_size="10sp", font_name='assets/fonts/static/Fredoka/Fredoka-regular', color=(0,0,0,1))
         glay.add_widget(lbl)
         for x in range(7):
             btn = NewBtn(text="", background_color= (1,1,1,1), background_normal='', size_hint=(1,1))
