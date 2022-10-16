@@ -18,6 +18,9 @@ from kivy.uix.popup import Popup
 from kivy.graphics import *
 from kivy.utils import *
 
+import first_db
+import mysql.connector
+
 class moreInfoWindow(Popup):
     pass
 
@@ -50,6 +53,21 @@ class GroupLayout(BoxLayout):
         flaylout.add_widget(infoButton)
         self.add_widget(flaylout)
 
+def addLabel(layout, mydb):
+    my_cursor = mydb.cursor()
+
+    my_cursor.execute("SELECT * FROM users")
+
+    for x in my_cursor:
+        name = x[0]
+        subject = x[1]
+        admin = x[2]
+        
+
+    layout.add_widget(Label(text = name, color = (0,0,0,1), size_hint = (None, None), size = (80, 20), pos_hint = {"center_x":.5, "top":0}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular'))
+    layout.add_widget(Label(text = subject, color = (0,0,0,1), size_hint = (None, None), size = (80, 20), pos_hint = {"center_x":.5, "top":0}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular'))
+    layout.add_widget(Label(text = admin, color = (0,0,0,1), size_hint = (None, None), size = (80, 20), pos_hint = {"center_x":.5, "top":0}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular'))
+
 class Scroll(ScrollView):
     def __init__(self,  **kwargs):
         super(Scroll, self).__init__(**kwargs)
@@ -57,18 +75,17 @@ class Scroll(ScrollView):
 
         layout.bind(minimum_height=layout.setter('height'))
         # Make sure the height is such that there is something to scroll.
-        for i in range(6):
-            rlayout = RelativeLayout(height=140, size_hint_y=None, size_hint_x=self.width)
-            with rlayout.canvas.before: 
-                Color(0.9, 0.8, 0.94, 1)
-                print( 0.125*Window.size[0], 0.56*Window.size[1], self.width+0.43*(Window.size[0]), 0.21 * (Window.size[1]))
-                Rectangle(pos=(self.pos[0] + 0.125*Window.size[0], self.pos[1]+0.056*Window.size[1]), size=(self.width+0.4375*(Window.size[0]), 0.21 * (Window.size[1])))
+        for i in range(15):
+            SkillStat = BoxLayout(spacing = 2, height = 150, orientation = "vertical", size_hint_y = None)
+            addLabel(SkillStat, first_db.getMyDB())
+            flaylout = FloatLayout(size_hint = (1, 1))
+            infoButton = infoBtn(text = "more info", size_hint = (0.3, 0.4), pos_hint = {"center_x": .5, "top": 0.9}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular', background_color = get_color_from_hex('#BF98D1'), background_normal = '')
+            infoButton.bind(on_release=show_popup)
+            flaylout.add_widget(infoButton)
+            SkillStat.add_widget(flaylout)
+            layout.add_widget(SkillStat)
 
-            group = GroupLayout("name", "subject", "admin", spacing = 1, height = 140, orientation = "vertical", size_hint_y = None)
-            rlayout.add_widget(group)
-            layout.add_widget(rlayout)
-
-        self.add_widget(layout)
+        self.add_widget(layout) 
 
 
 class mygrpApp(App):
