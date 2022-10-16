@@ -19,8 +19,6 @@ import time
 import first_db
 import mysql.connector
 
-#from mygroups import mygroups
-
 
 
 class Homepage(Screen):
@@ -38,17 +36,70 @@ class Account(Screen):
     def __init__(self, **kwargs):  
         super().__init__(**kwargs)
 
-class mygroups(Screen): 
-    kv = Builder.load_file("mygrp.kv")
-    def popUp(self):
-        show_popupinfo()
-
 class moreInfoWindow(Popup):
     pass
 
+class mygroups(Screen): 
+    kv = None
+    if kv == None: kv = Builder.load_file("mygrp.kv")
+    def __init__(self, **kwargs):  
+        super().__init__(**kwargs) 
+
+    def popUp(self):
+        show_popup()
+
 def show_popupinfo(self): 
-    popupWindow = moreInfoWindow()
-    popupWindow.open() 
+        #popupWindow = moreInfoWindow()
+        popupWindow = Popup(title="Group Name", title_color=(0, 0, 0, 1), \
+                            title_font='assets/fonts/static/Fredoka/Fredoka-medium',\
+                            separator_color=get_color_from_hex("#A46BBE"),\
+                            title_size= 20, background="", \
+                            background_color=get_color_from_hex("#E7D2F0"),\
+                            size_hint=(None, None), size=(300, 380))
+        flay = FloatLayout()
+
+        subject = Label(text="Subject:", color=(0, 0, 0, 1),\
+                        font_name='assets/fonts/static/Fredoka/Fredoka-regular',\
+                        pos_hint={"x": -.365, "top": 1.43})
+        with subject.canvas: 
+            Color(rgb=get_color_from_hex("#A46BBE"))
+            Rectangle(pos=(self.width-5, self.height+355), size=(190, 1.5))
+        flay.add_widget(subject)
+
+        admin = Label(text="Admin:", color=(0, 0, 0, 1),\
+                      font_name='assets/fonts/static/Fredoka/Fredoka-regular',\
+                      pos_hint={"x": -.38, "top": 1.35})
+        with admin.canvas:
+            Color(rgb=get_color_from_hex("#A46BBE"))
+            Rectangle(pos=(self.width-12, self.height+331), size=(196, 1.5))
+        flay.add_widget(admin)
+
+        meeting = Label(text="Meeting Times", color=(0, 0, 0, 1),\
+                        font_name='assets/fonts/static/Fredoka/Fredoka-regular',\
+                        pos_hint={"x": -.285, "top": 1.27})
+        with meeting.canvas: 
+            Color(rgb=get_color_from_hex("#A46BBE"))
+            Rectangle(pos=(self.width-61, self.height+282), size=(245, 1.5))
+        flay.add_widget(meeting)
+
+        members = Label(text="Members", color=(0, 0, 0, 1),\
+                        font_name='assets/fonts/static/Fredoka/Fredoka-regular',\
+                        pos_hint={"x": -.35, "top": 1.12})
+        with members.canvas: 
+            Color(rgb=get_color_from_hex("#D8B3E9"))
+            Rectangle(pos=(self.width-62, self.height+224), size=(245, 31))
+        flay.add_widget(members)
+
+        desc = Label(text="Description", color=(0, 0, 0, 1),\
+                        font_name='assets/fonts/static/Fredoka/Fredoka-regular',\
+                        pos_hint={"x": -.325, "top": .95})
+        with desc.canvas: 
+            Color(rgb=get_color_from_hex("#D8B3E9"))
+            Rectangle(pos=(self.width-62, self.height+98), size=(245, 100))
+        flay.add_widget(desc)
+
+        popupWindow.add_widget(flay)
+        popupWindow.open()
 
 class infoBtn(Button):
     def __init__(self, **kwargs):
@@ -90,30 +141,6 @@ class Scroll(ScrollView):
             layout.add_widget(rlayout)
 
         self.add_widget(layout)
-
-    def refresh(self):
-        # self.clear_widgets()
-        layout = GridLayout(cols=1, spacing=-1, pos_hint ={'x':0, 'y': 0}, size_hint_y = None, height = "0.8") 
-
-        layout.bind(minimum_height=layout.setter('height'))
-        # Make sure the height is such that there is something to scroll.
-        my_cursor = first_db.getMyDB().cursor()
-
-        my_cursor.execute("SELECT * FROM users ORDER BY group_ID DESC")
-
-        for x in my_cursor:
-            rlayout = RelativeLayout(height=140, size_hint_y=None, size_hint_x=self.width)
-            with rlayout.canvas.before: 
-                Color(0.9, 0.8, 0.94, 1)
-                print( 0.125*Window.size[0], 0.56*Window.size[1], self.width+0.43*(Window.size[0]), 0.21 * (Window.size[1]))
-                Rectangle(pos=(self.pos[0] + 0.125*Window.size[0], self.pos[1]+0.056*Window.size[1]), size=(self.width+0.4375*(Window.size[0]), 0.21 * (Window.size[1])))
-
-            group = GroupLayout(x[0], x[1], x[2], spacing = 1, height = 140, orientation = "vertical", size_hint_y = None)
-            rlayout.add_widget(group)
-            layout.add_widget(rlayout)
-
-        self.add_widget(layout)
-
 
 
 class Profile(Screen):
@@ -163,30 +190,21 @@ class WindowManager(ScreenManager):
         self.current = 'refreshed'+str(self.val)
         self.val+=1 
         
-        print("entered ref")
+        #print("entered ref")
         time.sleep(0.2) 
-
-
-sm = WindowManager(transition=NoTransition()) 
-
-screens = [Login(name="login"), Account(name="AccountApp"), Homepage(name="home"), Profile(name="profile"), CreateFormScreen(name='create'), SearchGroupScreen(name='search'), mygroups(name="mygroups")]  
-
-for screen in screens:  
-    print("widget added")
-    sm.add_widget(screen) 
-
-sm.current = "login"  
-
-def ref():
-    screens.append(Homepage(name="refreshed"))
-    sm.add_widget(Homepage(name="refreshed"))
-    print("entered ref")
-    time.sleep(0.2)
-
 
 
 class LoginAppMain(App):
     def build(self): 
+        sm = WindowManager(transition=NoTransition()) 
+
+        screens = [Login(name="login"), Account(name="AccountApp"), Homepage(name="home"), Profile(name="profile"), CreateFormScreen(name='create'), SearchGroupScreen(name='search'), mygroups(name="mygroups")]  
+
+        for screen in screens:  
+            #print("widget added")
+            sm.add_widget(screen) 
+
+        sm.current = "login"  
         Window.size = (480/1.5, 853/1.5)
         App.title = "IRISTUDY"
         return sm

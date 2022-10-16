@@ -42,6 +42,7 @@ def show_popup():
             btn = NewBtn(text="", background_color= (1,1,1,1), background_normal='', size_hint=(1,1))
             btn.bind(on_press = btn.changebg)
             glay.add_widget(btn)
+            
     popupWindow.add_widget(glay)
 
     popupWindow.open()
