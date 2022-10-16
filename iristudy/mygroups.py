@@ -12,6 +12,7 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.relativelayout import RelativeLayout
 from kivy.uix.scrollview import ScrollView
+from kivy.properties import ObjectProperty
 from kivy.uix.screenmanager import Screen
 from kivy.uix.popup import Popup
 from kivy.graphics import *
@@ -21,6 +22,10 @@ class moreInfoWindow(Popup):
     pass
 
 class mygroups(Screen): 
+    name = ObjectProperty(None)
+    subject = ObjectProperty(None)
+    admin = ObjectProperty(None)
+    
     def popUp(self):
         show_popupinfo()
 
