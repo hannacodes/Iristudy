@@ -1,30 +1,72 @@
 #:import utils kivy.utils
 <moreInfoWindow>
-    title: "group name"
+    title: "Group Name"
     title_color: (0, 0, 0, 1)
-    separator_color: (0, 0, 0, 1)
+    title_font: 'assets/fonts/static/Fredoka/Fredoka-medium'
+    separator_color: utils.get_color_from_hex("#A46BBE")
+    title_size: 20
     background: ""
     background_color: utils.get_color_from_hex("#E7D2F0")
     size_hint: (None, None)
     size: (300, 380)
     FloatLayout:
         Label: 
-            text: "subject:"
+            text: "Subject:"
             color: (0, 0, 0, 1)
-            pos_hint: {"x": -.35, "top": 1.43}
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
+            pos_hint: {"x": -.365, "top": 1.43}
+            canvas.before: 
+                Color: 
+                    rgb: utils.get_color_from_hex("#A46BBE")
+                Rectangle: 
+                    pos: (root.width-210, root.height+7)
+                    size: (190, 1.5)
+                    
         Label: 
-            text: "admin:"
+            text: "Admin:"
             color: (0, 0, 0, 1)
-            pos_hint: {"x": -.37, "top": 1.35}
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
+            pos_hint: {"x": -.38, "top": 1.35}
+            canvas.before: 
+                Color: 
+                    rgb: utils.get_color_from_hex("#A46BBE")
+                Rectangle: 
+                    pos: (root.width-217, root.height-17)
+                    size: (196, 1.5)
         Label: 
             text: "Meeting Times"
-            pos_hint: {"x": -.28, "top": 1.27}
+            color: (0, 0, 0, 1)
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
+            pos_hint: {"x": -.285, "top": 1.27}
+            canvas.before: 
+                Color: 
+                    rgb: utils.get_color_from_hex("#A46BBE")
+                Rectangle: 
+                    pos: (root.width-266, root.height-66)
+                    size: (245, 1.5)
         Label: 
             text: "Members"
-            pos_hint: {"x": -.2}
+            color: (0, 0, 0, 1)
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
+            pos_hint: {"x": -.35, "top": 1.12}
+            canvas.before: 
+                Color: 
+                    rgb: utils.get_color_from_hex("#D8B3E9")
+                Rectangle: 
+                    pos: (root.width-267, root.height-124)
+                    size: (245, 31)
         Label: 
             text: "Description"
-            pos_hint: {"x": -.3}
+            color: (0, 0, 0, 1)
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
+            pos_hint: {"x": -.325, "top": .95}
+            #0.93, 0.24
+            canvas.before: 
+                Color: 
+                    rgb: utils.get_color_from_hex("#D8B3E9")
+                Rectangle: 
+                    pos: (root.width-267, root.height-250)
+                    size: (245, 100)
 
 <mygroups>
     FloatLayout:
