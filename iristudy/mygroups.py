@@ -52,7 +52,7 @@ class GroupLayout(BoxLayout):
         infoButton.bind(on_release=show_popupinfo)
         flaylout.add_widget(infoButton)
         self.add_widget(flaylout)
-
+'''
 def addLabel(layout, mydb):
     my_cursor = mydb.cursor()
 
@@ -68,6 +68,7 @@ def addLabel(layout, mydb):
     layout.add_widget(Label(text = subject, color = (0,0,0,1), size_hint = (None, None), size = (80, 20), pos_hint = {"center_x":.5, "top":0}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular'))
     layout.add_widget(Label(text = admin, color = (0,0,0,1), size_hint = (None, None), size = (80, 20), pos_hint = {"center_x":.5, "top":0}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular'))
 
+
 class Scroll(ScrollView):
     def __init__(self,  **kwargs):
         super(Scroll, self).__init__(**kwargs)
@@ -80,13 +81,13 @@ class Scroll(ScrollView):
             addLabel(SkillStat, first_db.getMyDB())
             flaylout = FloatLayout(size_hint = (1, 1))
             infoButton = infoBtn(text = "more info", size_hint = (0.3, 0.4), pos_hint = {"center_x": .5, "top": 0.9}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular', background_color = get_color_from_hex('#BF98D1'), background_normal = '')
-            infoButton.bind(on_release=show_popup)
+            infoButton.bind(on_release=show_popupinfo)
             flaylout.add_widget(infoButton)
             SkillStat.add_widget(flaylout)
             layout.add_widget(SkillStat)
 
         self.add_widget(layout) 
-
+'''
 
 class mygrpApp(App):
     def build(self):

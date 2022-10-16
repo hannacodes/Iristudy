@@ -47,8 +47,8 @@ class moreInfoWindow(Popup):
     pass
 
 def show_popupinfo(self): 
-        popupWindow = moreInfoWindow()
-        popupWindow.open() 
+    popupWindow = moreInfoWindow()
+    popupWindow.open() 
 
 class infoBtn(Button):
     def __init__(self, **kwargs):
@@ -82,7 +82,7 @@ class Scroll(ScrollView):
             rlayout = RelativeLayout(height=140, size_hint_y=None, size_hint_x=self.width)
             with rlayout.canvas.before: 
                 Color(0.9, 0.8, 0.94, 1)
-                print( 0.125*Window.size[0], 0.56*Window.size[1], self.width+0.43*(Window.size[0]), 0.21 * (Window.size[1]))
+                #print( 0.125*Window.size[0], 0.56*Window.size[1], self.width+0.43*(Window.size[0]), 0.21 * (Window.size[1]))
                 Rectangle(pos=(self.pos[0] + 0.125*Window.size[0], self.pos[1]+0.056*Window.size[1]), size=(self.width+0.4375*(Window.size[0]), 0.21 * (Window.size[1])))
 
             group = GroupLayout(x[0], x[1], x[2], spacing = 1, height = 140, orientation = "vertical", size_hint_y = None)

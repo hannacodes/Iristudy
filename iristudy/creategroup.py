@@ -95,18 +95,6 @@ class NewBtn(Button):
         a.background_color = (0,1,0,.4)
 
 
-    arr2 = ["9:00am", "10:00am", "11:00am", "12:00pm", "1:00pm", "2:00pm", "3:00pm"]
-    for x in range(7): 
-        lbl = Label(text=arr2[x], font_size="10sp", font_name='assets/fonts/static/Fredoka/Fredoka-regular', color=(0,0,0,1))
-        glay.add_widget(lbl)
-        for x in range(7):
-            btn = NewBtn(text="", background_color= get_color_from_hex("#D8B3E9"), background_normal='', size_hint=(1,1))
-            btn.bind(on_press = btn.changebg)
-            glay.add_widget(btn)
-    popupWindow.add_widget(glay)
-
-    popupWindow.open()
-
 class CreateApp(App):
     def build(self):
         return CreateFormScreen()
