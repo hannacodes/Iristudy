@@ -19,6 +19,8 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+first_db.py
+kivy_venv/
 
 # Installer logs
 pip-log.txt
