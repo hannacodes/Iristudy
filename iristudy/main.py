@@ -50,25 +50,25 @@ class mygroups(Screen):
 
 def show_popupinfo(self): 
         #popupWindow = moreInfoWindow()
-        popupWindow = Popup(title="Group Name", title_color=(0, 0, 0, 1), \
+        popupWindow = Popup(title="Dissecting Frogs", title_color=(0, 0, 0, 1), \
                             title_font='assets/fonts/static/Fredoka/Fredoka-medium',\
                             separator_color=get_color_from_hex("#A46BBE"),\
                             title_size= 20, background="", \
                             background_color=get_color_from_hex("#E7D2F0"),\
                             size_hint=(None, None), size=(300, 380))
         flay = FloatLayout()
-
-        subject = Label(text="Subject:", color=(0, 0, 0, 1),\
+        
+        subject = Label(text="Subject:  Biology", color=(0, 0, 0, 1),\
                         font_name='assets/fonts/static/Fredoka/Fredoka-regular',\
-                        pos_hint={"x": -.365, "top": 1.43})
+                        pos_hint={"x": -.26, "top": 1.43})
         with subject.canvas: 
             Color(rgb=get_color_from_hex("#A46BBE"))
             Rectangle(pos=(self.width-5, self.height+355), size=(190, 1.5))
         flay.add_widget(subject)
 
-        admin = Label(text="Admin:", color=(0, 0, 0, 1),\
+        admin = Label(text="Admin:  Hanna K.", color=(0, 0, 0, 1),\
                       font_name='assets/fonts/static/Fredoka/Fredoka-regular',\
-                      pos_hint={"x": -.38, "top": 1.35})
+                      pos_hint={"x": -.25, "top": 1.35})
         with admin.canvas:
             Color(rgb=get_color_from_hex("#A46BBE"))
             Rectangle(pos=(self.width-12, self.height+331), size=(196, 1.5))
@@ -82,6 +82,11 @@ def show_popupinfo(self):
             Rectangle(pos=(self.width-61, self.height+282), size=(245, 1.5))
         flay.add_widget(meeting)
 
+        meetingtimes = Label(text="Mon, Wed, Fri (3pm-5pm)", color=(0, 0, 0, 1),\
+                        font_name='assets/fonts/static/Fredoka/Fredoka-regular',\
+                        pos_hint={"x": -.13, "top": 1.2})
+        flay.add_widget(meetingtimes)
+
         members = Label(text="Members", color=(0, 0, 0, 1),\
                         font_name='assets/fonts/static/Fredoka/Fredoka-regular',\
                         pos_hint={"x": -.35, "top": 1.12})
@@ -90,6 +95,11 @@ def show_popupinfo(self):
             Rectangle(pos=(self.width-62, self.height+224), size=(245, 31))
         flay.add_widget(members)
 
+        membernames = Label(text="Lucy H., Ryan O., Shan O.", color=(0, 0, 0, 1),\
+                        font_name='assets/fonts/static/Fredoka/Fredoka-regular',\
+                        pos_hint={"x": -.13, "top": 1.03})
+        flay.add_widget(membernames)
+
         desc = Label(text="Description", color=(0, 0, 0, 1),\
                         font_name='assets/fonts/static/Fredoka/Fredoka-regular',\
                         pos_hint={"x": -.325, "top": .95})
@@ -97,6 +107,12 @@ def show_popupinfo(self):
             Color(rgb=get_color_from_hex("#D8B3E9"))
             Rectangle(pos=(self.width-62, self.height+98), size=(245, 100))
         flay.add_widget(desc)
+
+        descBox = Label(text="Join this group if you feel that you are\nstruggling in biology! We plan to study\nfor the midterm in the next month.\nCheck out the meeting times if they\nwork with you.",\
+                        color=(0, 0, 0, 1), font_size=13.5,\
+                        font_name='assets/fonts/static/Fredoka/Fredoka-regular',\
+                        pos_hint={"x": -.01, "top": .74})
+        flay.add_widget(descBox)
 
         popupWindow.add_widget(flay)
         popupWindow.open()
