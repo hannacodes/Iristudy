@@ -169,14 +169,16 @@
         Button: 
             text: "Edit"
             background_color: utils.get_color_from_hex('#BF98D1')
-            on_press: email.disabled = False; bio.disabled = False; password.disabled = False; username.disabled = False; 
+            on_release: email.disabled = False; bio.disabled = False; password.disabled = False; username.disabled = False; 
+            font_name:'assets/fonts/static/Fredoka/Fredoka-regular'
             size_hint: 0.2, 0.05
             pos_hint: {"x": 0.5, "top": 0.18}
         
         Button: 
             text: "Log Out"
             background_color: utils.get_color_from_hex('#BF98D1')
-            on_press: app.root.current = 'login'; 
+            on_release: app.root.current = 'login'; 
+            font_name:'assets/fonts/static/Fredoka/Fredoka-regular'
             size_hint: 0.2, 0.05
             pos_hint: {"x": 0.3, "top": 0.18}
 
@@ -188,8 +190,8 @@
             Button:
                 background_normal: ""
                 background_color: utils.get_color_from_hex('#BF98D1')
-                on_press: self.background_color = (1.2, 1.2, 1, 0); app.root.current = 'mygroups'
-                on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
+                on_press: self.background_color = (1.2, 1.2, 1, 0)
+                on_release: self.background_color = utils.get_color_from_hex('#BF98D1'); app.root.current = 'mygroups'
                 FloatLayout:
                     Image:
                         source: "assets/images/mygroupsicon.png"
@@ -198,7 +200,7 @@
             Button:
                 background_normal: ""
                 background_color: utils.get_color_from_hex('#BF98D1')
-                on_press: self.background_color = (1.2, 1.2, 1, 0); app.root.current = 'create'
+                on_press: self.background_color = (1.2, 1.2, 1, 0)
                 on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
                 FloatLayout:
                     Image:
@@ -210,6 +212,7 @@
                 background_color: utils.get_color_from_hex('#BF98D1')
                 on_press: self.background_color = (1.2, 1.2, 1, 0); app.root.current = 'profile'
                 on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
+                font_name:'assets/fonts/static/Fredoka/Fredoka-regular'
                 FloatLayout:
                     Image:
                         source: "assets/images/myprofileicon.png"

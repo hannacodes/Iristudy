@@ -3,7 +3,7 @@ __pycache__/
 iristudy/__pycache__/
 *.py[cod]
 
-buildoser/
+buildozer/
 
 # C extensions
 *.so
