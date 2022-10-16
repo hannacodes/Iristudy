@@ -9,6 +9,7 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.relativelayout import RelativeLayout
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.scrollview import ScrollView
+from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import *
 from creategroup import show_popup
 from kivy.utils import * 
@@ -37,9 +38,20 @@ class Account(Screen):
 
 class mygroups(Screen): 
     kv = Builder.load_file("mygrp.kv")
-    def __init__(self, **kwargs):  
-        super().__init__(**kwargs)
+    def popUp(self):
+        show_popupinfo()
 
+class moreInfoWindow(Popup):
+    pass
+
+def show_popupinfo(self): 
+        popupWindow = moreInfoWindow()
+        popupWindow.open() 
+
+class infoBtn(Button):
+    def __init__(self, **kwargs):
+        super(Button, self).__init__(**kwargs)
+    
 class GroupLayout(BoxLayout): 
     def __init__(self, name, subject, admin, **kwargs):
         super().__init__(**kwargs)    
@@ -47,7 +59,9 @@ class GroupLayout(BoxLayout):
         self.add_widget(Label(text = subject, color = (0,0,0,1), size_hint = (None, None), size = (80, 20), pos_hint = {"center_x":.5, "top":0}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular'))
         self.add_widget(Label(text = admin, color = (0,0,0,1), size_hint = (None, None), size = (80, 20), pos_hint = {"center_x":.5, "top":0}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular'))
         flaylout = FloatLayout(size_hint = (1, 1))
-        flaylout.add_widget(Button(text = "more info", size_hint = (0.3, 0.4), pos_hint = {"center_x": .5, "top": 0.9}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular', background_color = get_color_from_hex('#BF98D1'), background_normal = ''))
+        infoButton = infoBtn(text = "more info", size_hint = (0.3, 0.4), pos_hint = {"center_x": .5, "top": 0.9}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular', background_color = get_color_from_hex('#BF98D1'), background_normal = '')
+        infoButton.bind(on_release=show_popupinfo)
+        flaylout.add_widget(infoButton)
         self.add_widget(flaylout)
 
 class Scroll(ScrollView):
