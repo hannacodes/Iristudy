@@ -1,21 +1,26 @@
 #:import utils kivy.utils
 <moreInfoWindow>
     title: "group name"
+    title_color: (0, 0, 0, 1)
+    separator_color: (0, 0, 0, 1)
+    background: ""
+    background_color: utils.get_color_from_hex("#E7D2F0")
     size_hint: (None, None)
     size: (300, 380)
-    BoxLayout: 
-        orientation: "vertical" 
+    FloatLayout:
         Label: 
             text: "subject:"
-            pos_hint: {"x": -.3}
+            color: (0, 0, 0, 1)
+            pos_hint: {"x": -.35, "top": 1.43}
         Label: 
             text: "admin:"
-            pos_hint: {"x": -.32}
-        Label: 
-            text: "members"
-            pos_hint: {"x": -.28}
+            color: (0, 0, 0, 1)
+            pos_hint: {"x": -.37, "top": 1.35}
         Label: 
             text: "Meeting Times"
+            pos_hint: {"x": -.28, "top": 1.27}
+        Label: 
+            text: "Members"
             pos_hint: {"x": -.2}
         Label: 
             text: "Description"
