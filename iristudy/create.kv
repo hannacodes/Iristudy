@@ -5,6 +5,7 @@
 <MySpinnerOption@SpinnerOption>:
     background_color: utils.get_color_from_hex('#BF98D1')
     background_down: ''
+    font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
 
 
 
@@ -49,10 +50,10 @@
         Label:
             size_hint: (1, 0.18)
             pos_hint: {"x":0, "top":0.98}
-            font_name: 'assets/fonts/static/Fredoka/Fredoka-regular'
+            font_name: 'assets/fonts/static/Fredoka/Fredoka-bold'
             font_size: 28
             bold: True
-            text: "CREATE A GROUP"
+            text: "Create Group"
             color: (0, 0, 0)
 
 
@@ -94,7 +95,7 @@
             on_press: self.background_color = (1.2, 1.2, 1, 0)
             on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
             text: "Select subject"
-            values: ["Math", "English", "Biology", "Chemistry", "History", "Sus"]
+            values: ["Math", "English", "Biology", "Chemistry", "History"]
             
             option_cls: Factory.get("MySpinnerOption")
             on_text: root.spinner_clicked(subject.text)
