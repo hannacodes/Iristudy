@@ -13,14 +13,14 @@ from kivy.uix.screenmanager import *
 from creategroup import show_popup
 from kivy.utils import * 
 from kivy.graphics import *
+import time
 
 import first_db
 import mysql.connector
 
 #from mygroups import mygroups
 
-class WindowManager(ScreenManager):  
-    pass
+
 
 class Homepage(Screen):
     kv = Builder.load_file("home.kv")
@@ -61,7 +61,30 @@ class Scroll(ScrollView):
         # Make sure the height is such that there is something to scroll.
         my_cursor = first_db.getMyDB().cursor()
 
-        my_cursor.execute("SELECT * FROM users")
+        my_cursor.execute("SELECT * FROM users ORDER BY group_ID DESC")
+
+        for x in my_cursor:
+            rlayout = RelativeLayout(height=140, size_hint_y=None, size_hint_x=self.width)
+            with rlayout.canvas.before: 
+                Color(0.9, 0.8, 0.94, 1)
+                print( 0.125*Window.size[0], 0.56*Window.size[1], self.width+0.43*(Window.size[0]), 0.21 * (Window.size[1]))
+                Rectangle(pos=(self.pos[0] + 0.125*Window.size[0], self.pos[1]+0.056*Window.size[1]), size=(self.width+0.4375*(Window.size[0]), 0.21 * (Window.size[1])))
+
+            group = GroupLayout(x[0], x[1], x[2], spacing = 1, height = 140, orientation = "vertical", size_hint_y = None)
+            rlayout.add_widget(group)
+            layout.add_widget(rlayout)
+
+        self.add_widget(layout)
+
+    def refresh(self):
+        # self.clear_widgets()
+        layout = GridLayout(cols=1, spacing=-1, pos_hint ={'x':0, 'y': 0}, size_hint_y = None, height = "0.8") 
+
+        layout.bind(minimum_height=layout.setter('height'))
+        # Make sure the height is such that there is something to scroll.
+        my_cursor = first_db.getMyDB().cursor()
+
+        my_cursor.execute("SELECT * FROM users ORDER BY group_ID DESC")
 
         for x in my_cursor:
             rlayout = RelativeLayout(height=140, size_hint_y=None, size_hint_x=self.width)
@@ -77,6 +100,7 @@ class Scroll(ScrollView):
         self.add_widget(layout)
 
 
+
 class Profile(Screen):
     kv = Builder.load_file("profile.kv")
     def __init__(self, **kwargs):  
@@ -89,6 +113,7 @@ def commitToDB(groupName, subject, description, mydb):
         my_cursor.execute(first_db.getSQLInfo(), record);
         
         mydb.commit()
+    
 
 #still need to add create group, search group
 class CreateFormScreen(Screen):
@@ -106,17 +131,28 @@ class CreateFormScreen(Screen):
 
     def submit(self):
         commitToDB(self.groupName.text, self.subject, self.description.text, first_db.getMyDB())
-
-        self.add_widget(Label(text=f'{self.groupName.text}, {self.description.text}'))
         self.groupName.text = ""
         self.description.text = ""
+        self.subject = "Select subject"
 
 class SearchGroupScreen(Screen):
     kv = Builder.load_file("search.kv")
     def __init__(self, **kwargs):  
         super().__init__(**kwargs)
 
-sm = ScreenManager(transition=NoTransition()) 
+
+class WindowManager(ScreenManager): 
+    val = 0
+    def ref(self):
+        self.add_widget(Homepage(name="refreshed"+str(self.val)))
+        self.current = 'refreshed'+str(self.val)
+        self.val+=1 
+        
+        print("entered ref")
+        time.sleep(0.2) 
+
+
+sm = WindowManager(transition=NoTransition()) 
 
 screens = [Login(name="login"), Account(name="AccountApp"), Homepage(name="home"), Profile(name="profile"), CreateFormScreen(name='create'), SearchGroupScreen(name='search'), mygroups(name="mygroups")]  
 
@@ -125,6 +161,14 @@ for screen in screens:
     sm.add_widget(screen) 
 
 sm.current = "login"  
+
+def ref():
+    screens.append(Homepage(name="refreshed"))
+    sm.add_widget(Homepage(name="refreshed"))
+    print("entered ref")
+    time.sleep(0.2)
+
+
 
 class LoginAppMain(App):
     def build(self): 

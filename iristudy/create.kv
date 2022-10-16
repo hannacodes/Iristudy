@@ -1,6 +1,7 @@
 #:kivy 2.1.0
 #:import utils kivy.utils
 #:import Factory kivy.factory.Factory
+#:import ref main
 
 <MySpinnerOption@SpinnerOption>:
     background_color: utils.get_color_from_hex('#BF98D1')
@@ -145,8 +146,8 @@
             
             on_press: self.background_color = (1.2, 1.2, 1, 0)
             on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
-            on_press: root.submit()
-            on_press: app.root.current = 'home'
+            on_release: root.submit(); app.root.ref();
+            
 
                 # assign a group id randomly if the submission is valid
 
