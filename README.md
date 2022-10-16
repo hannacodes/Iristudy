@@ -1,6 +1,8 @@
 # Iristudy
 
-Promoting collective productivity with study groups! Study efficiently & effectively.
+Promoting collective productivity with study groups! Study efficiently & effectively. \
+\
+iristudy.tech
 
 ## Description
 
