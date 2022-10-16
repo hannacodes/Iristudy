@@ -55,7 +55,7 @@ class NewBtn(Button):
         super(Button, self).__init__(**kwargs)
 
     def changebg(a,b): 
-        a.background_color = (0,1,0,1)
+        a.background_color = (0,1,0,.4)
 
 def show_popup():
     popupWindow = Popup(title="Potential Meeting Times", size_hint=(None, None), size=(300, 380), title_size="20sp", title_font='assets/fonts/static/Fredoka/Fredoka-medium', background = '', background_color= (0.91, 0.82, 0.94, 1), separator_color=get_color_from_hex("#a46bbe"), title_color=(0,0,0,1))
@@ -70,7 +70,7 @@ def show_popup():
         lbl = Label(text=arr2[x], font_size="10sp", font_name='assets/fonts/static/Fredoka/Fredoka-regular', color=(0,0,0,1))
         glay.add_widget(lbl)
         for x in range(7):
-            btn = NewBtn(text="", background_color= (1,1,1,1), background_normal='', size_hint=(1,1))
+            btn = NewBtn(text="", background_color= get_color_from_hex("#D8B3E9"), background_normal='', size_hint=(1,1))
             btn.bind(on_press = btn.changebg)
             glay.add_widget(btn)
     popupWindow.add_widget(glay)
