@@ -18,44 +18,13 @@ from kivy.core.window import Window
 from kivy.uix.screenmanager import Screen
 from kivy.uix.popup import Popup
 from kivy.utils import *
+
+import first_db
+import mysql.connector
+
+
+
 Window.size = (480/1.5, 853/1.5)
-
-
-class CreateFormScreen(Screen):
-    # get the username from profile data and then set it to name data
-    groupName = ObjectProperty(None)
-    subject = ObjectProperty(None)
-    # get the time
-    description = ObjectProperty(None)
-
-    def popUp(self):
-        show_popup()
-
-    def spinner_clicked(self, value):
-        self.subject.text = value
-
-    def submit(self):
-        # self.add_widget(Label(text=f'{self.groupName.text}, {self.description.text}'))
-        # check if invalid input
-        # call a function that will send information to group page?
-        self.groupName.text = ""
-        self.subject.text = "Select subject"
-        self.description.text = ""
-
-class Pop(FloatLayout):
-    def __init__(self, **kwargs):
-        super(FloatLayout, self).__init__(**kwargs)
-        glay = GridLayout(cols=7, size_hint = (0.5, 0.5))
-        for __ in range(56): 
-            glay.add_widget(Button(text="t", background_color= (0,0,0,0.5)))
-        self.add_widget(glay)
-
-class NewBtn(Button):
-    def __init__(self, **kwargs):
-        super(Button, self).__init__(**kwargs)
-
-    def changebg(a,b): 
-        a.background_color = (0,1,0,1)
 
 def show_popup():
     popupWindow = Popup(title="Potential Meeting Times", size_hint=(None, None), size=(300, 380), title_size="20sp", title_font='assets/fonts/static/Fredoka/Fredoka-medium', background = '', background_color= (0.91, 0.82, 0.94, 1), separator_color=get_color_from_hex("#a46bbe"), title_color=(0,0,0,1))
@@ -76,6 +45,56 @@ def show_popup():
     popupWindow.add_widget(glay)
 
     popupWindow.open()
+
+def commitToDB(groupName, subject, description, mydb):
+    record = (groupName, subject, description)
+    
+    my_cursor = mydb.cursor()
+    my_cursor.execute(first_db.getSQLInfo(), record);
+    
+    mydb.commit()
+
+class CreateFormScreen(Screen):
+    # get the username from profile data and then set it to name data
+    groupName = ObjectProperty(None)
+    subject = ObjectProperty(None)
+    # get the time
+    description = ObjectProperty(None)
+
+    def popUp(self):
+        show_popup()
+
+    def spinner_clicked(self, value):
+        self.subject.text = value
+
+
+    def submit(self):
+        # self.add_widget(Label(text=f'{self.groupName.text}, {self.description.text}'))
+        # check if invalid input
+        # call a function that will send information to group page?
+        
+        commitToDB(self.groupName.text, self.subject.text, self.description.text, first_db.getMyDB())
+        
+        self.groupName.text = ""
+        self.subject.text = "Select subject"
+        self.description.text = ""
+
+class Pop(FloatLayout):
+    def __init__(self, **kwargs):
+        super(FloatLayout, self).__init__(**kwargs)
+        glay = GridLayout(cols=7, size_hint = (0.5, 0.5))
+        for __ in range(56): 
+            glay.add_widget(Button(text="t", background_color= (0,0,0,0.5)))
+        self.add_widget(glay)
+
+class NewBtn(Button):
+    def __init__(self, **kwargs):
+        super(Button, self).__init__(**kwargs)
+
+    def changebg(a,b): 
+        a.background_color = (0,1,0,1)
+
+
 
 class CreateApp(App):
     def build(self):
