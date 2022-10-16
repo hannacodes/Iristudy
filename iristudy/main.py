@@ -14,6 +14,9 @@ from creategroup import show_popup
 from kivy.utils import * 
 from kivy.graphics import *
 
+import first_db
+import mysql.connector
+
 #from mygroups import mygroups
 
 class WindowManager(ScreenManager):  
@@ -75,7 +78,15 @@ class Profile(Screen):
     kv = Builder.load_file("profile.kv")
     def __init__(self, **kwargs):  
         super().__init__(**kwargs)
+
+def commitToDB(groupName, subject, description, mydb):
+        record = (groupName, subject, description)
         
+        my_cursor = mydb.cursor()
+        my_cursor.execute(first_db.getSQLInfo(), record);
+        
+        mydb.commit()
+
 #still need to add create group, search group
 class CreateFormScreen(Screen):
     kv = Builder.load_file("create.kv")
@@ -91,6 +102,8 @@ class CreateFormScreen(Screen):
         self.subject = value
 
     def submit(self):
+        commitToDB(self.groupName.text, self.subject, self.description.text, first_db.getMyDB())
+
         self.add_widget(Label(text=f'{self.groupName.text}, {self.description.text}'))
         self.groupName.text = ""
         self.description.text = ""
