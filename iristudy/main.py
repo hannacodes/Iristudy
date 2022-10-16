@@ -27,7 +27,6 @@ class Homepage(Screen):
     def __init__(self, **kwargs):  
         super().__init__(**kwargs)
     
-
 class Login(Screen):
     kv = Builder.load_file("login.kv")
     def __init__(self, **kwargs):  
@@ -42,7 +41,7 @@ class mygroups(Screen):
     kv = Builder.load_file("mygrp.kv")
     def __init__(self, **kwargs):  
         super().__init__(**kwargs)
-
+    
 class GroupLayout(BoxLayout): 
     def __init__(self, name, subject, admin, **kwargs):
         super().__init__(**kwargs)    
@@ -60,14 +59,18 @@ class Scroll(ScrollView):
 
         layout.bind(minimum_height=layout.setter('height'))
         # Make sure the height is such that there is something to scroll.
-        for i in range(6):
+        my_cursor = first_db.getMyDB().cursor()
+
+        my_cursor.execute("SELECT * FROM users")
+
+        for x in my_cursor:
             rlayout = RelativeLayout(height=140, size_hint_y=None, size_hint_x=self.width)
             with rlayout.canvas.before: 
                 Color(0.9, 0.8, 0.94, 1)
                 print( 0.125*Window.size[0], 0.56*Window.size[1], self.width+0.43*(Window.size[0]), 0.21 * (Window.size[1]))
                 Rectangle(pos=(self.pos[0] + 0.125*Window.size[0], self.pos[1]+0.056*Window.size[1]), size=(self.width+0.4375*(Window.size[0]), 0.21 * (Window.size[1])))
 
-            group = GroupLayout("name", "subject", "admin", spacing = 1, height = 140, orientation = "vertical", size_hint_y = None)
+            group = GroupLayout(x[0], x[1], x[2], spacing = 1, height = 140, orientation = "vertical", size_hint_y = None)
             rlayout.add_widget(group)
             layout.add_widget(rlayout)
 

@@ -16,6 +16,9 @@ from kivy.uix.popup import Popup
 from kivy.graphics import *
 from kivy.utils import *
 
+import first_db
+import mysql.connector
+
 class moreInfoWindow(Popup):
     pass
 
@@ -34,6 +37,22 @@ class infoBtn(Button):
     def __init__(self, **kwargs):
         super(Button, self).__init__(**kwargs)
 
+
+def addLabel(layout, mydb):
+    my_cursor = mydb.cursor()
+
+    my_cursor.execute("SELECT * FROM users")
+
+    for x in my_cursor:
+        name = x[0]
+        subject = x[1]
+        admin = x[2]
+        
+
+    layout.add_widget(Label(text = name, color = (0,0,0,1), size_hint = (None, None), size = (80, 20), pos_hint = {"center_x":.5, "top":0}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular'))
+    layout.add_widget(Label(text = subject, color = (0,0,0,1), size_hint = (None, None), size = (80, 20), pos_hint = {"center_x":.5, "top":0}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular'))
+    layout.add_widget(Label(text = admin, color = (0,0,0,1), size_hint = (None, None), size = (80, 20), pos_hint = {"center_x":.5, "top":0}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular'))
+    
 class Scroll(ScrollView):
 
     def __init__(self,  **kwargs):
@@ -43,9 +62,7 @@ class Scroll(ScrollView):
         # Make sure the height is such that there is something to scroll.
         for i in range(15):
             SkillStat = BoxLayout(spacing = 2, height = 150, orientation = "vertical", size_hint_y = None)
-            SkillStat.add_widget(Label(text = "Name", color = (0,0,0,1), size_hint = (None, None), size = (80, 20), pos_hint = {"center_x":.5, "top":0}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular'))
-            SkillStat.add_widget(Label(text = "Subject", color = (0,0,0,1), size_hint = (None, None), size = (80, 20), pos_hint = {"center_x":.5, "top":0}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular'))
-            SkillStat.add_widget(Label(text = "Admin", color = (0,0,0,1), size_hint = (None, None), size = (80, 20), pos_hint = {"center_x":.5, "top":0}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular'))
+            addLabel(SkillStat, first_db.getMyDB())
             flaylout = FloatLayout(size_hint = (1, 1))
             infoButton = infoBtn(text = "more info", size_hint = (0.3, 0.4), pos_hint = {"center_x": .5, "top": 0.9}, font_name = 'assets/fonts/static/Fredoka/Fredoka-regular', background_color = get_color_from_hex('#BF98D1'), background_normal = '')
             infoButton.bind(on_release=show_popup)
