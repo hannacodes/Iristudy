@@ -32,7 +32,7 @@ class CreateFormScreen(Screen):
         show_popup()
 
     def spinner_clicked(self, value):
-        self.subject.text = value;
+        self.subject.text = value
 
     def submit(self):
         # self.add_widget(Label(text=f'{self.groupName.text}, {self.description.text}'))
