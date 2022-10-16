@@ -83,8 +83,7 @@ class Scroll(ScrollView):
             layout.add_widget(rlayout)
 
         self.add_widget(layout)
-
-
+        
 class Profile(Screen):
     kv = Builder.load_file("profile.kv")
     def __init__(self, **kwargs):  
@@ -105,6 +104,7 @@ class CreateFormScreen(Screen):
         self.subject = value
 
     def submit(self):
+        ScrollView
         #self.add_widget(Label(text=f'{self.groupName.text}, {self.description.text}'))
         self.groupName.text = ""
         self.description.text = ""

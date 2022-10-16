@@ -144,9 +144,7 @@
             background_color: utils.get_color_from_hex('#BF98D1')
             
             on_press: self.background_color = (1.2, 1.2, 1, 0)
-            on_release: self.background_color = utils.get_color_from_hex('#BF98D1')
-            on_press: root.submit()
-            on_press: app.root.current = 'home'
+            on_release: self.background_color = app.root.current = 'home'; utils.get_color_from_hex('#BF98D1'); root.submit()
 
                 # assign a group id randomly if the submission is valid
 
